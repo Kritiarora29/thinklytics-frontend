@@ -66,7 +66,7 @@ export default function AboutPage() {
             <div className="mentor-content-wrapper p-10 md:p-16 border-y-0 border-r-0">
               <h3 className="text-3xl font-bold text-white mb-2">Divij Bajaj</h3>
               <p className="text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-8">
-                Founder, Thinklytics AI • Ex-Microsoft Data Scientist
+                Founder, Thinklytics AI • Microsoft Data Scientist
               </p>
               
               <ul className="space-y-6 text-gray-300 text-lg">

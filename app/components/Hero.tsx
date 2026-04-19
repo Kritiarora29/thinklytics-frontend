@@ -31,7 +31,7 @@ export default function Hero() {
               text-4xl sm:text-5xl md:text-6xl lg:text-[5.2rem]
             "
           >
-            Let’s Build the Future
+            <span className="text-shine-effect">Let’s Build the Future</span>
             <br />
             <span className="neon-text">with AI — Together.</span>
           </motion.h1>
