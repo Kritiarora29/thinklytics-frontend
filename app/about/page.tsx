@@ -10,11 +10,34 @@ export default function AboutPage() {
       <AuroraBackground />
 
       {/* HEADER */}
-      <div className="text-center mb-24 mt-16 max-w-5xl mx-auto relative z-10">
-        <h1 className="massive-heading-1 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 bg-clip-text text-transparent pb-4">
+      <div className="text-center mb-24 px-4 pt-10 max-w-5xl mx-auto relative z-10 flex flex-col items-center">
+        <h2
+          style={{
+            background: "linear-gradient(90deg, #00f0ff, #a855f7)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            lineHeight: "1.1",
+          }}
+          className="massive-heading-1"
+        >
+          Thinklytics AI
+        </h2>
+        
+        {/* <h1 
+          // className="massive-heading-1"
+          style={{
+            background: "linear-gradient(90deg, #22d3ee, #3b82f6, #a855f7)",
+            WebkitBackgroundClip: "text",
+            backgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            lineHeight: "1.1",
+          }}
+        >
           The Intellect Behind AI
-        </h1>
-        <p className="massive-subtitle mt-6">
+        </h1> */}
+
+        <p className="massive-subtitle mt-2">
           Architecting Enterprise Intelligence • Cultivating Global Talent
         </p>
       </div>
@@ -91,7 +114,14 @@ export default function AboutPage() {
       {/* 🧠 OUR EXPERTISE (REUSING PORTFOLIO CSS LOGIC) */}
       <div className="z-10 relative mt-32 max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="massive-heading-2 text-white">
+          <h2 className="massive-heading-2"
+            style={{
+              background: "linear-gradient(90deg, #22d3ee, #3b82f6, #a855f7)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              lineHeight: "1.1",
+            }}>
             Core Expertise
           </h2>
         </div>

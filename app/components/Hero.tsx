@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import AuroraBackground from "./AuroraBackground";
+import ParticleNetwork from "./ParticleNetwork";
 import MentorHighlight from "./MentorHighlight";
 
 export default function Hero() {
@@ -17,6 +18,7 @@ export default function Hero() {
         relative overflow-hidden
       ">
 
+        <ParticleNetwork />
         <AuroraBackground />
         <div className="absolute inset-0 -z-10 grid-bg opacity-40"></div>
 
@@ -31,7 +33,7 @@ export default function Hero() {
               text-4xl sm:text-5xl md:text-6xl lg:text-[5.2rem]
             "
           >
-            <span className="text-shine-effect">Let’s Build the Future</span>
+            <span >Let’s Build the Future</span>
             <br />
             <span className="neon-text">with AI — Together.</span>
           </motion.h1>
@@ -58,7 +60,9 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
             className="mt-10 flex justify-center gap-4 sm:gap-6 flex-wrap"
           >
-            <button className="nav-btn">Get Started</button>
+            <span className="text-shine-effect text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-widest font-mono">
+              Get Started
+            </span>
           </motion.div>
 
         </div>

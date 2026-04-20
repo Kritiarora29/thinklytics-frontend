@@ -18,11 +18,10 @@ export default function Navbar() {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       className="fixed top-0 left-0 w-full z-50"
+      style={{ backgroundColor: '#000000', borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}
     >
-      <div className="max-w-7xl mx-auto px-6 pt-4">
-
-        {/* 💎 Glass Container */}
-        <div className="glass-nav flex items-center justify-between px-8 py-4">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex items-center justify-between py-4">
 
           {/* 🔷 Logo (Clickable → Home) */}
           <Link href="/" className="flex items-center cursor-pointer group">
