@@ -12,7 +12,7 @@ export default function AIProfileSection() {
             <div className="relative z-10 max-w-6xl mx-auto">
 
                 {/* Heading */}
-                <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
                     AI Expert Profile
                 </h2>
 
@@ -34,14 +34,14 @@ export default function AIProfileSection() {
                             key={i}
                             className="bg-white/5 backdrop-blur-md p-6 rounded-xl text-center border border-white/10"
                         >
-                            <p className="text-xl font-semibold">{item}</p>
+                            <p className="text-lg font-semibold">{item}</p>
                         </div>
                     ))}
                 </div>
 
                 {/* About */}
                 <div className="mb-16">
-                    <h3 className="text-2xl font-semibold mb-4">About</h3>
+                    <h3 className="text-xl font-semibold mb-4">About</h3>
                     <p className="text-gray-400 leading-relaxed">
                         Divij Bajaj is a Data & Applied Scientist at Microsoft specializing in GenAI solutions.
                         Founder of Thinklytics AI and creator of Edu.AI, he has trained over 1 million learners globally.
@@ -50,7 +50,7 @@ export default function AIProfileSection() {
 
                 {/* Expertise */}
                 <div className="mb-16">
-                    <h3 className="text-2xl font-semibold mb-6">Expertise</h3>
+                    <h3 className="text-xl font-semibold mb-6">Expertise</h3>
                     <div className="grid md:grid-cols-2 gap-4">
                         {[
                             "Generative AI & LLMs",

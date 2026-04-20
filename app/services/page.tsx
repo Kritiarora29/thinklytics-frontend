@@ -91,7 +91,7 @@ export default function ServicesPage() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.3 }}
         className="text-center text-gray-400 max-w-4xl mx-auto mb-20"
-        style={{ fontSize: "1.5rem", lineHeight: "1.6", fontWeight: "500" }}
+        style={{ fontSize: "1.25rem", lineHeight: "1.6", fontWeight: "500" }}
       >
         Unlock the full potential of artificial intelligence to revolutionize your business, optimize operations, and create unprecedented value.
       </motion.p>
@@ -177,7 +177,7 @@ export default function ServicesPage() {
 
               {/* 🔸 TEXT */}
               <div className="service-content-box flex-1 w-full text-left">
-                <h2 style={{ fontSize: '1.75rem', fontWeight: 800, marginBottom: '0.75rem' }}>{item.title}</h2>
+                <h2 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.75rem' }}>{item.title}</h2>
                 <p style={{ color: '#9ca3af', fontSize: '1rem', lineHeight: 1.6 }}>{item.desc}</p>
                 <div className="custom-features-flex">
                   {item.features.map((feature, idx) => (

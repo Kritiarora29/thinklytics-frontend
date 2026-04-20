@@ -30,7 +30,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="
               font-extrabold leading-[1.05] tracking-tight text-white
-              text-4xl sm:text-5xl md:text-6xl lg:text-[5.2rem]
+              text-3xl sm:text-4xl md:text-5xl lg:text-6xl
             "
           >
             <span >Let’s Build the Future</span>
@@ -44,7 +44,7 @@ export default function Hero() {
             transition={{ delay: 0.3 }}
             className="
               mt-6
-              text-base sm:text-lg md:text-2xl
+              text-base sm:text-lg md:text-xl
               text-gray-300
               max-w-2xl md:max-w-3xl
               mx-auto
@@ -60,7 +60,7 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
             className="mt-10 flex justify-center gap-4 sm:gap-6 flex-wrap"
           >
-            <span className="bg-shine-effect text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-widest font-mono cursor-pointer">
+            <span className="bg-shine-effect text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-widest font-mono cursor-pointer">
               Get Started
             </span>
           </motion.div>

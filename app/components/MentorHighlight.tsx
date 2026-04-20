@@ -55,7 +55,7 @@ export default function MentorHighlight() {
           {/* RIGHT — CONTENT */}
           <div className="mentor-content-wrapper">
 
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-1">Divij Bajaj</h3>
+            <h3 className="text-xl md:text-2xl font-bold text-white mb-1">Divij Bajaj</h3>
             <p className="text-cyan-400 text-sm mb-6 font-medium tracking-wide">FOUNDER, THINKLYTICS AI</p>
 
             <p className="text-gray-300 leading-relaxed text-sm md:text-base mb-6">
@@ -66,15 +66,15 @@ export default function MentorHighlight() {
             {/* COUNTERS */}
             <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-8 mt-auto">
               <div>
-                <p className="text-xl md:text-2xl font-bold text-white">{(counts.learners / 1000000).toFixed(1)}M+</p>
+                <p className="text-lg md:text-xl font-bold text-white">{(counts.learners / 1000000).toFixed(1)}M+</p>
                 <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-tighter mt-1">Learners</p>
               </div>
               <div>
-                <p className="text-xl md:text-2xl font-bold text-white">{Math.floor(counts.linkedin / 1000)}K+</p>
+                <p className="text-lg md:text-xl font-bold text-white">{Math.floor(counts.linkedin / 1000)}K+</p>
                 <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-tighter mt-1">LinkedIn</p>
               </div>
               <div>
-                <p className="text-xl md:text-2xl font-bold text-white">{counts.brands}+</p>
+                <p className="text-lg md:text-xl font-bold text-white">{counts.brands}+</p>
                 <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-tighter mt-1">Brands</p>
               </div>
             </div>

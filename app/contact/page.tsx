@@ -73,7 +73,8 @@ export default function Contact() {
         <div style={{ background: "rgba(255, 255, 255, 0.05)", backdropFilter: "blur(20px)", border: "1px solid rgba(255, 255, 255, 0.1)", borderRadius: "1.5rem", padding: "3rem", position: "relative", overflow: "hidden" }}>
 
           <div className="text-center mb-10">
-            <h1 style={{ fontSize: "2.5rem", fontWeight: "800", letterSpacing: "-0.02em", color: "#fff", marginBottom: "0.5rem" }}>
+            <h1 className="neon-text" 
+            style={{ fontSize: "3.25rem", fontWeight: "800", letterSpacing: "-0.02em", color: "#fff", marginBottom: "0.5rem" }}>
               Contact Us
             </h1>
             <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "1rem", fontWeight: "600" }}>
@@ -85,7 +86,7 @@ export default function Contact() {
           {success ? (
             <div className="flex flex-col items-center justify-center py-20 text-center">
               <div style={{ fontSize: "5rem", marginBottom: "1rem" }}>🎉</div>
-              <h2 style={{ fontSize: "2rem", fontWeight: "bold", color: "#4caf50", marginBottom: "1rem" }}>Submitted!</h2>
+              <h2 style={{ fontSize: "1.75rem", fontWeight: "bold", color: "#4caf50", marginBottom: "1rem" }}>Submitted!</h2>
               <p style={{ color: "rgba(255,255,255,0.7)" }}>We have successfully received your registration.</p>
               <button onClick={() => setSuccess(false)} className="submit-btn-pill" style={{ marginTop: "2rem", background: "transparent", border: "1px solid rgba(255,255,255,0.3)", color: "white" }}>
                 Submit Another

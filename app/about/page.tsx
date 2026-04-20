@@ -48,15 +48,15 @@ export default function AboutPage() {
           <div className="service-card-inner flex-col md:flex-row items-stretch p-0 overflow-hidden">
             
             <div className="flex-1 p-10 md:p-14 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
-              <h2 className="text-3xl font-extrabold text-cyan-400 mb-6">Our Mission</h2>
-              <p className="text-gray-300 leading-relaxed text-lg">
+              <h2 className="text-2xl font-extrabold text-cyan-400 mb-6">Our Mission</h2>
+              <p className="text-gray-300 leading-relaxed text-base">
                 At Thinklytics AI, we bridge the gap between bleeding-edge artificial intelligence research and practical, impactful enterprise solutions. We don't just build neural networks—we build the teams, ecosystems, and architectures that allow modern businesses to operate autonomously and efficiently.
               </p>
             </div>
 
             <div className="flex-1 p-10 md:p-14 flex flex-col justify-center">
-              <h2 className="text-3xl font-extrabold text-purple-400 mb-6">Our Vision</h2>
-              <p className="text-gray-300 leading-relaxed text-lg">
+              <h2 className="text-2xl font-extrabold text-purple-400 mb-6">Our Vision</h2>
+              <p className="text-gray-300 leading-relaxed text-base">
                 We believe that the future of computing isn't just algorithmic, it's democratized. Through rigorous masterclasses, open-source implementations, and direct enterprise training, we are actively shaping a world where AI fundamentally amplifies human creativity.
               </p>
             </div>
@@ -87,12 +87,12 @@ export default function AboutPage() {
             
             {/* CONTENT */}
             <div className="mentor-content-wrapper p-10 md:p-16 border-y-0 border-r-0">
-              <h3 className="text-3xl font-bold text-white mb-2">Divij Bajaj</h3>
+              <h3 className="text-2xl font-bold text-white mb-2">Divij Bajaj</h3>
               <p className="text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-8">
                 Founder, Thinklytics AI • Microsoft Data Scientist
               </p>
               
-              <ul className="space-y-6 text-gray-300 text-lg">
+              <ul className="space-y-6 text-gray-300 text-base">
                 <li className="flex items-start gap-4">
                   <span className="text-cyan-400 text-2xl mt-1">▹</span>
                   <span>Led the development of highly scalable machine learning and GenAI systems during his tenure at Microsoft.</span>
@@ -146,7 +146,7 @@ export default function AboutPage() {
             }
           ].map((item, i) => (
             <div key={i} className="featured-program-item flex flex-col justify-center">
-              <h3 className="text-2xl font-bold text-cyan-400 mb-4">{item.title}</h3>
+              <h3 className="text-xl font-bold text-cyan-400 mb-4">{item.title}</h3>
               <p className="text-gray-400 font-normal leading-relaxed">{item.desc}</p>
             </div>
           ))}

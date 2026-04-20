@@ -55,7 +55,7 @@ export default function MediaCarousel() {
             
             {/* CONTENT */}
             <div className="workshop-content">
-              <h3 className="text-xl md:text-2xl font-bold text-white mb-3 tracking-tight">
+              <h3 className="text-lg md:text-xl font-bold text-white mb-3 tracking-tight">
                 {event.title}
               </h3>
               <p className="text-gray-400 text-sm leading-relaxed mt-auto">
