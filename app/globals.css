@@ -609,6 +609,23 @@ html, body {
   display: inline-block;
 }
 
+.bg-shine-effect {
+  background: linear-gradient(
+    to right,
+    #111111 20%,
+    #00f0ff 40%,
+    #d81b60 60%,
+    #111111 80%
+  );
+  background-size: 200% auto;
+  color: #ffffff;
+  animation: textShine 4s linear infinite;
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.2);
+}
+
 /* ----------------------------------
    Ambient Curved Energy Lines
 ------------------------------------- */

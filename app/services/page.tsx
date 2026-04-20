@@ -198,7 +198,7 @@ export default function ServicesPage() {
       {/* ========================= */}
 
       <ParallaxSection>
-        <div className="mt-40 pb-48 text-center max-w-6xl mx-auto mb-20">
+        <div className="mt-40 pb-32 text-center max-w-6xl mx-auto">
           <motion.h2 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}

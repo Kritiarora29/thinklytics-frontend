@@ -60,7 +60,7 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
             className="mt-10 flex justify-center gap-4 sm:gap-6 flex-wrap"
           >
-            <span className="text-shine-effect text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-widest font-mono">
+            <span className="bg-shine-effect text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-widest font-mono cursor-pointer">
               Get Started
             </span>
           </motion.div>

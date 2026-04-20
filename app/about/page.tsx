@@ -19,7 +19,7 @@ export default function AboutPage() {
             WebkitTextFillColor: "transparent",
             lineHeight: "1.1",
           }}
-          className="massive-heading-1"
+          className="massive-heading-1 "
         >
           Thinklytics AI
         </h2>

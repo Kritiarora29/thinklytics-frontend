@@ -33,7 +33,7 @@ export default function MentorHighlight() {
             backgroundClip: "text",
             WebkitTextFillColor: "transparent",
           }}
-          className="massive-heading-1"
+          className="massive-heading-1 "
         >
           Meet your Mentor
         </h2>
