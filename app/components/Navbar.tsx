@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -14,13 +14,26 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <motion.nav
       initial={{ y: -80 }}
       animate={{ y: 0 }}
-      className="sticky top-0 left-0 w-full z-[999] bg-black"
-      style={{ borderBottom: '1px solid rgba(255, 255, 255, 0.1)' }}
+      className={`fixed top-0 left-0 w-full z-[999] transition-all duration-300 ${
+        scrolled 
+          ? "border-b border-white/10 py-1 shadow-2xl" 
+          : "bg-transparent py-2"
+      }`}
+      style={{ backgroundColor: scrolled ? '#000000' : 'transparent' }}
     >
       <style>{`
         .desktop-nav {
@@ -44,7 +57,7 @@ export default function Navbar() {
           }
         }
       `}</style>
-      <div className="max-w-7xl mx-auto px-6 relative z-[1000] bg-black">
+      <div className="max-w-7xl mx-auto px-6 relative z-[1000]">
         <div className="flex items-center justify-between py-4">
 
           {/* 🔷 Logo (Clickable → Home) */}
@@ -98,15 +111,16 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           className="mobile-menu-overlay flex-col items-center gap-6 pt-12 shadow-2xl"
           style={{ 
-            position: 'absolute',
+            position: 'fixed',
             left: 0,
+            top: scrolled ? '56px' : '72px', 
             width: '100%',
-            height: '100vh',
+            height: 'calc(100vh - 56px)',
             backgroundColor: 'rgba(0, 0, 0, 0.95)',
             backdropFilter: 'blur(24px)',
             zIndex: 900,
-            top: '100%', 
-            borderTop: '1px solid rgba(255, 255, 255, 0.1)' 
+            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
+            transition: 'top 0.3s ease'
           }}
         >
           {navLinks.map((link) => (

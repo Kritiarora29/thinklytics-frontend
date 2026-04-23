@@ -22,7 +22,7 @@ const events = [
 
 export default function MediaCarousel() {
   return (
-    <div className="w-full max-w-7xl mx-auto px-6 py-24">
+    <div className="w-full max-w-6xl mx-auto px-6 py-24">
       
       {/* HEADER SECTION FOR GALLERIES TO TIE IT ALL TOGETHER */}
       <motion.div 

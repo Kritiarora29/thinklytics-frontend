@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import AuroraBackground from "./AuroraBackground";
 import ParticleNetwork from "./ParticleNetwork";
@@ -13,7 +14,7 @@ export default function Hero() {
         min-h-screen
         flex flex-col items-center justify-center text-center
         px-6
-        pt-24 md:pt-28   /* prevents navbar overlap */
+        pt-48 md:pt-44
         pb-10
         relative overflow-hidden
       ">
@@ -30,7 +31,7 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="
               font-extrabold leading-[1.05] tracking-tight text-white
-              text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+              text-2xl sm:text-3xl md:text-4xl lg:text-5xl
             "
           >
             <span >Let’s Build the Future</span>
@@ -60,9 +61,11 @@ export default function Hero() {
             transition={{ delay: 0.5 }}
             className="mt-10 flex justify-center gap-4 sm:gap-6 flex-wrap"
           >
-            <span className="bg-shine-effect text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-widest font-mono cursor-pointer">
-              Get Started
-            </span>
+            <Link href="/services">
+              <span className="bg-shine-effect text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-widest font-mono cursor-pointer border-2 border-white hover:scale-110 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] transition-all duration-300 px-8 py-4">
+                Get Started
+              </span>
+            </Link>
           </motion.div>
 
         </div>

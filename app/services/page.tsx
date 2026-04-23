@@ -80,6 +80,8 @@ export default function ServicesPage() {
             backgroundClip: "text",
             WebkitTextFillColor: "transparent",
             lineHeight: "1.1",
+            paddingTop: "2rem",
+
           }}
         >
           Transform with AI

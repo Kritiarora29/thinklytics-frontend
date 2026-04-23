@@ -186,9 +186,9 @@ html, body {
 ------------------------------------- */
 
 .mentor-card-wrapper {
-  max-width: 68rem;
+  max-width: 64rem;
   margin: 0 auto;
-  border-radius: 2rem;
+  border-radius: 2.5rem;
   padding: 3px;
   background: linear-gradient(135deg, #00f0ff, #3b82f6, #a855f7);
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.5s ease;
@@ -218,18 +218,23 @@ html, body {
 
 .mentor-image-wrapper {
   width: 100%;
-  height: 350px;
-  min-height: 400px;
+  max-width: 280px;
+  margin: 0 auto;
+  height: 280px;
+  min-height: 280px;
   overflow: hidden;
   flex-shrink: 0;
-  border-radius: 1.2rem;
+  border-radius: 2rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 @media (min-width: 768px) {
   .mentor-image-wrapper {
     width: 40%;
+    max-width: none;
+    margin: 0;
     height: auto;
+    border-radius: 1.2rem;
   }
 }
 
@@ -242,7 +247,6 @@ html, body {
 
 .mentor-content-wrapper {
   width: 100%;
-  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -255,13 +259,14 @@ html, body {
 @media (min-width: 768px) {
   .mentor-content-wrapper {
     width: 60%;
+    padding: 4rem;
   }
 }
 
 .video-card-wrapper {
-  max-width: 68rem;
+  max-width: 64rem;
   margin: 4rem auto 0;
-  border-radius: 2rem;
+  border-radius: 2.5rem;
   padding: 3px;
   background: linear-gradient(135deg, #00f0ff, #3b82f6, #a855f7);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -276,7 +281,7 @@ html, body {
   background-color: #0b0b0b;
   border-radius: 30px;
   overflow: hidden;
-  padding: 1.5rem;
+  padding: 2rem;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
@@ -292,38 +297,38 @@ html, body {
 ------------------------------------- */
 
 .massive-heading-1 {
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   font-weight: 900;
-  line-height: 1;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   display: inline-block;
 }
 
 .massive-heading-2 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: 900;
-  line-height: 1;
+  line-height: 1.1;
   letter-spacing: -0.02em;
   display: inline-block;
 }
 
 @media (min-width: 768px) {
-  .massive-heading-1 { font-size: 4rem; }
-  .massive-heading-2 { font-size: 3.2rem; }
+  .massive-heading-1 { font-size: 2.5rem; }
+  .massive-heading-2 { font-size: 2.25rem; }
 }
 
 @media (min-width: 1024px) {
-  .massive-heading-1 { font-size: 5.5rem; }
-  .massive-heading-2 { font-size: 4.5rem; }
+  .massive-heading-1 { font-size: 3rem; }
+  .massive-heading-2 { font-size: 2.5rem; }
 }
 
 @media (min-width: 1280px) {
-  .massive-heading-1 { font-size: 7rem; }
-  .massive-heading-2 { font-size: 5.5rem; }
+  .massive-heading-1 { font-size: 3.5rem; }
+  .massive-heading-2 { font-size: 2.75rem; }
 }
 
 .massive-subtitle {
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -333,13 +338,13 @@ html, body {
 
 @media (min-width: 768px) {
   .massive-subtitle {
-    font-size: 1.5rem;
+    font-size: 0.8rem;
   }
 }
 
 @media (min-width: 1024px) {
   .massive-subtitle {
-    font-size: 1.8rem;
+    font-size: 1.1rem;
   }
 }
 

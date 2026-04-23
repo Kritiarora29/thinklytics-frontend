@@ -22,7 +22,7 @@ export default function MentorHighlight() {
   }, []);
 
   return (
-    <section className="w-full px-8 md:px-24 py-24 bg-black">
+    <section className="w-full px-6 md:px-24 py-16 md:py-24 bg-black">
 
       {/* HEADING */}
       <div className="text-center mb-16 px-4">
@@ -58,10 +58,20 @@ export default function MentorHighlight() {
             <h3 className="text-xl md:text-2xl font-bold text-white mb-1">Divij Bajaj</h3>
             <p className="text-cyan-400 text-sm mb-6 font-medium tracking-wide">FOUNDER, THINKLYTICS AI</p>
 
-            <p className="text-gray-300 leading-relaxed text-sm md:text-base mb-6">
-              Data & Applied Scientist II at Microsoft with 6+ years of experience
-              building AI/ML systems. Founder of Thinklytics AI and creator of Edu.AI.
-            </p>
+            <div className="text-gray-300 leading-relaxed text-sm md:text-base mb-6 space-y-4">
+              <p>
+                Divij Bajaj is a distinguished Data & Applied Scientist II at Microsoft,
+                where he specializes in architecting high-scale Generative AI and Machine Learning systems.
+                With over 6 years of industry experience, he has been at the forefront of AI innovation,
+                bridging the gap between complex research and enterprise-grade solutions.
+              </p>
+              <p>
+                As the visionary Founder of Thinklytics AI and the creator of Edu.AI, Divij has
+                empowered over 1,000,000+ learners worldwide, making him one of the most influential
+                educators in Deep Learning and NLP. His expertise lies in developing autonomous AI agents
+                and intelligent workflows that drive digital transformation for global brands and Fortune 500 companies.
+              </p>
+            </div>
 
             {/* COUNTERS */}
             <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-8 mt-auto">

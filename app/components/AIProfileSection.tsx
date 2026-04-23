@@ -12,7 +12,7 @@ export default function AIProfileSection() {
             <div className="relative z-10 max-w-6xl mx-auto">
 
                 {/* Heading */}
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">
                     AI Expert Profile
                 </h2>
 

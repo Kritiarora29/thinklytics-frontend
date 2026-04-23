@@ -18,6 +18,7 @@ export default function AboutPage() {
             backgroundClip: "text",
             WebkitTextFillColor: "transparent",
             lineHeight: "1.1",
+            paddingTop: "2rem",
           }}
           className="massive-heading-1 "
         >
