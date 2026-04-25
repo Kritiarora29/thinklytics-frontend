@@ -1,128 +1,130 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { Users, Calendar, Building2, GraduationCap, Briefcase, Star } from "lucide-react";
+import styles from "./MentorHighlight.module.css";
 
 export default function MentorHighlight() {
-
-  const [counts, setCounts] = useState({ learners: 0, linkedin: 0, brands: 0 });
-
-  useEffect(() => {
-    let l = 0, li = 0, b = 0;
-    const i = setInterval(() => {
-      l += 20000; li += 1000; b += 1;
-      setCounts({
-        learners: Math.min(l, 1000000),
-        linkedin: Math.min(li, 50000),
-        brands: Math.min(b, 30),
-      });
-      if (l >= 1000000) clearInterval(i);
-    }, 30);
-    return () => clearInterval(i);
-  }, []);
-
   return (
-    <section className="w-full px-6 md:px-24 py-16 md:py-24 bg-black">
-
-      {/* HEADING */}
-      <div className="text-center mb-16 px-4">
-        <h2
-          style={{
-            background: "linear-gradient(90deg, #00f0ff, #a855f7)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-          className="massive-heading-1 "
+    <section className="w-full bg-black overflow-hidden">
+      <div className={styles.container}>
+        {/* HEADING */}
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={styles.heading}
         >
-          Meet your Mentor
-        </h2>
-      </div>
+          Meet <span className={styles.headingHighlight}>the Mentor</span>
+        </motion.h2>
 
-      {/* MAIN CARD */}
-      <div className="mentor-card-wrapper">
-        <div className="mentor-card-inner">
+        <div className={styles.bentoGrid}>
+          {/* LEFT PANEL - PROFILE */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            className={styles.leftPanel}
+          >
+            <div className={styles.imageWrapper}>
+              <div className={styles.blobBackground}></div>
+              <img
+                src="/divijbajaj_profile.png"
+                alt="Divij Bajaj"
+                className={styles.profileImage}
+              />
+            </div>
+            <div className={styles.profileInfo}>
+              <h3 className={styles.name}>Divij Bajaj</h3>
+              <p className={styles.title}>Data Scientist II @ Microsoft</p>
+              <p className={styles.founderTag}>Founder, Thinklytics AI</p>
+            </div>
+          </motion.div>
 
-          {/* LEFT — IMAGE */}
-          <div className="mentor-image-wrapper">
-            <img
-              src="/divijbajaj_profile.png"
-              alt="Divij Bajaj"
-              className="mentor-image"
-            />
+          {/* RIGHT PANEL - CARDS GRID */}
+          <div className={styles.rightPanel}>
+            <div className={styles.cardsGrid}>
+              <InfoCard 
+                icon={<Users size={22} />} 
+                title="1,000,000+" 
+                description="Learners Worldwide" 
+                delay={0.1}
+              />
+              <InfoCard 
+                icon={<Calendar size={22} />} 
+                title="6+ Years" 
+                description="Industry Experience" 
+                delay={0.2}
+              />
+              <InfoCard 
+                icon={<Building2 size={22} />} 
+                title="30+ Brands" 
+                description="Brands Transformed" 
+                delay={0.3}
+              />
+              <InfoCard 
+                icon={<GraduationCap size={22} />} 
+                title="GenAI Architect" 
+                description="Specializing in high-scale Generative AI systems at Microsoft." 
+                delay={0.4}
+              />
+              <InfoCard 
+                icon={<Briefcase size={22} />} 
+                title="AI Educator" 
+                description="Empowering global learners in Deep Learning and NLP through Edu.AI." 
+                delay={0.5}
+              />
+              <InfoCard 
+                icon={<Star size={22} />} 
+                title="Strategic Innovator" 
+                description="Developing autonomous AI agents for enterprise digital transformation." 
+                delay={0.6}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* VIDEO SECTION */}
+        <div className="mt-52">
+          <div className="text-center mb-12">
+            <h2 className={styles.heading}>
+              Sandeep Maheshwari <span className={styles.headingHighlight}>×</span> Divij Bajaj
+            </h2>
+            <p className="text-gray-400 uppercase tracking-[0.2em] text-sm md:text-base -mt-4 mb-4 text-center">
+              Featured on India's Biggest YouTube Channel • <span className="text-cyan-400">AI | OpenAI & ChatGPT</span>
+            </p>
           </div>
 
-          {/* RIGHT — CONTENT */}
-          <div className="mentor-content-wrapper">
-
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-1">Divij Bajaj</h3>
-            <p className="text-cyan-400 text-sm mb-6 font-medium tracking-wide">FOUNDER, THINKLYTICS AI</p>
-
-            <div className="text-gray-300 leading-relaxed text-sm md:text-base mb-6 space-y-4">
-              <p>
-                Divij Bajaj is a distinguished Data & Applied Scientist II at Microsoft,
-                where he specializes in architecting high-scale Generative AI and Machine Learning systems.
-                With over 6 years of industry experience, he has been at the forefront of AI innovation,
-                bridging the gap between complex research and enterprise-grade solutions.
-              </p>
-              <p>
-                As the visionary Founder of Thinklytics AI and the creator of Edu.AI, Divij has
-                empowered over 1,000,000+ learners worldwide, making him one of the most influential
-                educators in Deep Learning and NLP. His expertise lies in developing autonomous AI agents
-                and intelligent workflows that drive digital transformation for global brands and Fortune 500 companies.
-              </p>
+          <div className="video-card-wrapper max-w-5xl mx-auto">
+            <div className="video-card-inner !p-4 !bg-[#0a0a0a] !border !border-white/5">
+              <iframe
+                className="video-iframe rounded-2xl"
+                src="https://www.youtube.com/embed/0JHypbaymQI"
+                title="Sandeep Maheshwari x Divij Bajaj – AI Session"
+                allowFullScreen
+              />
             </div>
-
-            {/* COUNTERS */}
-            <div className="grid grid-cols-3 gap-4 border-t border-white/10 pt-8 mt-auto">
-              <div>
-                <p className="text-lg md:text-xl font-bold text-white">{(counts.learners / 1000000).toFixed(1)}M+</p>
-                <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-tighter mt-1">Learners</p>
-              </div>
-              <div>
-                <p className="text-lg md:text-xl font-bold text-white">{Math.floor(counts.linkedin / 1000)}K+</p>
-                <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-tighter mt-1">LinkedIn</p>
-              </div>
-              <div>
-                <p className="text-lg md:text-xl font-bold text-white">{counts.brands}+</p>
-                <p className="text-gray-500 text-[10px] md:text-xs uppercase tracking-tighter mt-1">Brands</p>
-              </div>
-            </div>
-
           </div>
         </div>
       </div>
-
-      {/* VIDEO HEADING */}
-      <div className="text-center mt-32 mb-10 px-4">
-        <h2
-          style={{
-            background: "linear-gradient(90deg, #00f0ff, #a855f7)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-          }}
-          className="massive-heading-2"
-        >
-          Sandeep Maheshwari × Divij Bajaj
-        </h2>
-        <p className="massive-subtitle">
-          Featured on India's Biggest YouTube Channel • <span style={{ color: "#00f0ff" }}>AI | OpenAI & ChatGPT</span>
-        </p>
-      </div>
-
-      {/* VIDEO CARD (MASSIVE WIDTH) */}
-      <div className="video-card-wrapper">
-        <div className="video-card-inner">
-          <iframe
-            className="video-iframe"
-            src="https://www.youtube.com/embed/0JHypbaymQI"
-            title="Sandeep Maheshwari x Divij Bajaj – AI Session"
-            allowFullScreen
-          />
-        </div>
-      </div>
-
     </section>
+  );
+}
+
+function InfoCard({ icon, title, description, delay }: { icon: React.ReactNode, title: string, description: string, delay: number }) {
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay }}
+      className={styles.card}
+    >
+      <div className={styles.iconWrapper}>{icon}</div>
+      <div className={styles.cardContent}>
+        <h3>{title}</h3>
+        <p>{description}</p>
+      </div>
+    </motion.div>
   );
 }
