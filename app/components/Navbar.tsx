@@ -30,10 +30,9 @@ export default function Navbar() {
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 w-full z-[999] transition-all duration-300 ${
         scrolled 
-          ? "border-b border-white/10 py-1 shadow-2xl" 
-          : "bg-transparent py-2"
+          ? "nav-scrolled py-2 shadow-2xl" 
+          : "bg-transparent py-4"
       }`}
-      style={{ backgroundColor: scrolled ? '#000000' : 'transparent' }}
     >
       <style>{`
         .desktop-nav {

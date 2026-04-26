@@ -2,26 +2,27 @@
 
 import { motion } from "framer-motion";
 import AuroraBackground from "./AuroraBackground";
+import Image from "next/image";
 
 import styles from "./ClientsSection.module.css";
 
 const clients = [
-  "Master Union, Gurgaon",
-  "Growth School",
-  "Mesa School of Business, Bangalore",
-  "Tetr College of Business, Dubai",
-  "Airtribe",
-  "USV Mumbai",
-  "Alembic Pharmaceuticals",
-  "Ministry of Railways, Raipur",
-  "Upgrad",
-  "Supros",
-  "Scaler"
+  { name: "Master Union, Gurgaon", logo: "/logos/mastersunion.png" },
+  { name: "Growth School", logo: "/logos/growthschool.png" },
+  { name: "Mesa School of Business, Bangalore", logo: "/logos/mesa.png" },
+  { name: "Tetr College of Business, Dubai", logo: "/logos/tetr.png" },
+  { name: "Airtribe", logo: "/logos/airtribe.png" },
+  { name: "USV Mumbai", logo: "/logos/usv.png" },
+  { name: "Alembic Pharmaceuticals", logo: "/logos/alembic.png" },
+  { name: "Ministry of Railways, Raipur", logo: "/logos/ministryofrailways.png" },
+  { name: "Upgrad", logo: "/logos/upgrad.png" },
+  { name: "Supros", logo: "/logos/supros.png" },
+  { name: "Scaler", logo: "/logos/scaler.png" }
 ];
 
 export default function ClientsSection() {
   return (
-    <section className="py-12 md:py-16 bg-black relative overflow-hidden">
+    <section className="py-8 md:py-10 bg-black relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <AuroraBackground />
       </div>
@@ -41,29 +42,36 @@ export default function ClientsSection() {
         </div>
 
         <div className="my-10 md:my-20">
-          {/* Desktop Grid (Hidden on Mobile) */}
-          <div className={styles.clientsGrid}>
-            {clients.map((client, i) => (
-              <ClientCard key={i} name={client} index={i} />
-            ))}
-          </div>
-
-          {/* Mobile/Tablet Dual-Row Marquee (Hidden on Desktop) */}
+          {/* Universal Dual-Row Marquee for all screen sizes */}
           <div className={styles.marqueeContainer}>
             {/* Row 1: Scroll Left */}
             <div className={`${styles.marqueeTrack} ${styles.scrollLeft}`}>
-              {[...clients.slice(0, 6), ...clients.slice(0, 6)].map((client, i) => (
+              {[...clients, ...clients].map((client, i) => (
                 <div key={i} className={styles.inlineClient}>
-                  {client}
+                  <Image 
+                    src={client.logo} 
+                    alt={client.name} 
+                    width={40} 
+                    height={40} 
+                    className="object-contain"
+                  />
+                  <span>{client.name}</span>
                 </div>
               ))}
             </div>
 
             {/* Row 2: Scroll Right */}
             <div className={`${styles.marqueeTrack} ${styles.scrollRight}`}>
-              {[...clients.slice(6), ...clients.slice(6)].map((client, i) => (
+              {[...[...clients].reverse(), ...[...clients].reverse()].map((client, i) => (
                 <div key={i} className={styles.inlineClient}>
-                  {client}
+                  <Image 
+                    src={client.logo} 
+                    alt={client.name} 
+                    width={40} 
+                    height={40} 
+                    className="object-contain"
+                  />
+                  <span>{client.name}</span>
                 </div>
               ))}
             </div>
@@ -71,21 +79,5 @@ export default function ClientsSection() {
         </div>
       </div>
     </section>
-  );
-}
-
-function ClientCard({ name, index }: { name: string; index: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.05 }}
-      className={styles.clientCard}
-    >
-      <span className={styles.clientName}>
-        {name}
-      </span>
-    </motion.div>
   );
 }

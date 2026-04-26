@@ -2,10 +2,16 @@
 
 export default function AuroraBackground() {
   return (
-    <div className="absolute inset-0 -z-20 overflow-hidden">
+    <div 
+      className="fixed inset-0 -z-20 overflow-hidden bg-black pointer-events-none"
+      style={{ isolation: 'isolate' }}
+    >
       <div className="aurora aurora-1"></div>
       <div className="aurora aurora-2"></div>
       <div className="aurora aurora-3"></div>
+      
+      {/* Texture Layer */}
+      <div className="grid-bg"></div>
 
       {/* Sweeping Energy Curves */}
       <div className="energy-line"></div>

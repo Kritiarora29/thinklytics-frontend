@@ -1,49 +1,28 @@
-.clientsGrid {
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .clientsGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1.25rem;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-}
-
-/* MARQUEE STYLES FOR MOBILE/TABLET */
+/* UNIVERSAL MARQUEE SLIDER */
 .marqueeContainer {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.5rem; /* Reduced row gap */
   overflow: hidden;
   width: 100%;
   position: relative;
-  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-}
-
-@media (min-width: 1024px) {
-  .marqueeContainer {
-    display: none;
-  }
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  padding: 1rem 0; /* Reduced padding */
 }
 
 .marqueeTrack {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem; /* Slightly reduced item gap */
   white-space: nowrap;
   width: fit-content;
 }
 
 .scrollLeft {
-  animation: scrollLeft 40s linear infinite;
+  animation: scrollLeft 100s linear infinite; /* Much slower */
 }
 
 .scrollRight {
-  animation: scrollRight 40s linear infinite;
+  animation: scrollRight 100s linear infinite;
 }
 
 @keyframes scrollLeft {
@@ -57,74 +36,36 @@
 }
 
 .inlineClient {
-  font-size: 0.9rem;
-  font-weight: 800;
+  font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
-  color: #f5f5dc; /* beige */
+  color: #ffffff;
   letter-spacing: 0.1em;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.5rem 1rem;
+  gap: 1.25rem;
+  padding: 0.8rem 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
 }
 
-.inlineClient::after {
-  content: "•";
-  color: #00f0ff;
-  opacity: 0.5;
-}
-
-.clientCard {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 50px;
-  padding: 0.6rem 1.2rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 2rem;
-  text-align: center;
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  backdrop-filter: blur(12px);
-}
-
-.clientCard:hover {
-  transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.08);
+.inlineClient:hover {
   border-color: #00f0ff;
-  box-shadow: 0 10px 20px rgba(0, 240, 255, 0.1);
-}
-
-.clientName {
-  position: relative;
-  z-index: 10;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  line-height: 1;
-  color: #f5f5dc;
-  transition: color 0.3s ease;
-  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 @media (min-width: 1024px) {
-  .clientCard {
-    min-height: 70px;
-    width: calc(25% - 1.25rem);
-    min-width: 200px;
-    padding: 0.8rem 1.25rem;
-  }
-  .clientName {
+  .inlineClient {
     font-size: 0.9rem;
+    gap: 1.75rem;
+    padding: 1.1rem 2.25rem;
   }
-}
-
-.clientCard:hover .clientName {
-  color: #00f0ff;
+  .marqueeContainer {
+    gap: 2rem; /* Reduced desktop row gap */
+  }
 }

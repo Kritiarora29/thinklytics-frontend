@@ -29,40 +29,58 @@ html, body {
   100% { transform: rotate(0deg) translate(-20%, 10%) rotate(0deg); }
 }
 
+/* ----------------------------------
+   Premium Aurora Background
+------------------------------------- */
+
 .aurora {
-  position: absolute;
+  position: fixed;
   width: 150vw;
   height: 150vh;
   left: -25vw;
   top: -25vh;
-  filter: blur(100px);
-  opacity: 0.8;
+  filter: blur(120px);
+  opacity: 0.3;
   mix-blend-mode: screen; 
+  pointer-events: none;
+  z-index: -20;
+  will-change: transform;
+}
+
+@keyframes aurora-swirl {
+  0% { transform: rotate(0deg) scale(1) translate(0, 0); }
+  33% { transform: rotate(120deg) scale(1.1) translate(5%, 10%); }
+  66% { transform: rotate(240deg) scale(0.9) translate(-10%, 5%); }
+  100% { transform: rotate(360deg) scale(1) translate(0, 0); }
 }
 
 .aurora-1 {
-  background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.5), transparent 50%);
-  animation: blobSwirl 25s linear infinite;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 240, 255, 0.35), transparent 60%);
+  animation: aurora-swirl 60s linear infinite;
 }
 
 .aurora-2 {
-  background: radial-gradient(circle at 50% 50%, rgba(216, 27, 96, 0.4), transparent 50%);
-  animation: blobSwirlReverse 30s linear infinite;
+  background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.25), transparent 60%);
+  animation: aurora-swirl 70s linear infinite reverse;
   animation-delay: -5s;
 }
 
 .aurora-3 {
-  background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.5), transparent 50%);
-  animation: blobSwirl 35s linear infinite;
+  background: radial-gradient(circle at 50% 50%, rgba(0, 255, 150, 0.2), transparent 60%);
+  animation: aurora-swirl 80s linear infinite;
   animation-delay: -15s;
 }
 
 .grid-bg {
+  position: fixed;
+  inset: 0;
   background-image: 
-    linear-gradient(rgba(0,255,255,0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,255,255,0.08) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+    linear-gradient(rgba(0,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,255,0.05) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
+  pointer-events: none;
+  z-index: -10;
 }
 
 @keyframes auroraFooter {
@@ -86,10 +104,18 @@ html, body {
 
 .glass-nav {
   backdrop-filter: blur(20px);
-  background: rgba(0,0,0,0.5);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(0,0,0,0.8);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 999px;
-  box-shadow: 0 0 40px rgba(0,255,255,0.08);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.nav-scrolled {
+  background: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .nav-btn {
   display: inline-flex;
@@ -604,7 +630,7 @@ html, body {
     to right,
     #ffffff 20%,
     #00f0ff 40%,
-    #d81b60 60%,
+    #a855f7 60%,
     #ffffff 80%
   );
   background-size: 200% auto;
@@ -621,7 +647,7 @@ html, body {
     to right,
     #111111 20%,
     #00f0ff 40%,
-    #d81b60 60%,
+    #a855f7 60%,
     #111111 80%
   );
   background-size: 200% auto;
