@@ -1,35 +1,101 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { FaInstagram, FaYoutube, FaEnvelope } from "react-icons/fa";
+import { FaInstagram, FaYoutube, FaEnvelope, FaLinkedin, FaGithub } from "react-icons/fa";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import styles from "./Footer.module.css";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+
+  const handleHomeClick = (e: React.MouseEvent) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
   return (
-    <motion.footer
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      className="relative mt-24 px-6 pb-6"
-    >
-      <div className="max-w-7xl mx-auto">
-
-        {/* 💎 Same Glass Container */}
-        <div className="glass-nav flex flex-col md:flex-row items-center justify-between px-8 py-6 md:py-4 gap-6 md:gap-0">
-
-          {/* 🔘 Links */}
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-            <a href="mailto:Thinklyticsaiconsulting@gmail.com" className="nav-btn" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}><FaEnvelope /> Email</a>
-            <a href="https://www.instagram.com/divij_bajaj5?igsh=NGszdWpnbm1id20w" className="nav-btn" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}><FaInstagram /> Instagram</a>
-            <a href="https://youtube.com/@padhaiwithdivij?si=uhS23F1KoLBynHSp" className="nav-btn" target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}><FaYoutube /> YouTube</a>
+    <footer className={styles.footer}>
+      <div className={styles.container}>
+        
+        {/* TOP SECTION: LOGO & LINKS */}
+        <div className={styles.grid}>
+          
+          {/* COLUMN 1: LOGO & CONTACT */}
+          <div className={styles.columnLogo}>
+            <Link href="/" className={styles.logoText} onClick={handleHomeClick}>
+              <span className={styles.whiteText}>Think</span>
+              <span className={styles.cyanText}>Lytics</span>
+            </Link>
+            <a href="mailto:Thinklyticsaiconsulting@gmail.com" className={styles.emailWrapper}>
+              <FaEnvelope className={styles.emailIcon} />
+              <span className="text-sm font-medium">
+                Thinklyticsaiconsulting@gmail.com
+              </span>
+            </a>
           </div>
 
-          {/* © */}
-          <p className="text-gray-400 text-sm md:text-base text-center mt-2 md:mt-0 whitespace-normal md:whitespace-nowrap">
-            © {new Date().getFullYear()} rights reserved by Thinklytics
+          {/* COLUMN 2: SERVICES */}
+          <div className={`${styles.column} ${styles.columnServices}`}>
+            <h3 className={styles.columnHeading}>Services</h3>
+            <ul className={styles.linkList}>
+              <li><Link href="/services" className={styles.footerLink}>AI Strategy</Link></li>
+              <li><Link href="/services" className={styles.footerLink}>GenAI Development</Link></li>
+              <li><Link href="/services" className={styles.footerLink}>LLM Fine-tuning</Link></li>
+              <li><Link href="/services" className={styles.footerLink}>AI Workshops</Link></li>
+            </ul>
+          </div>
+
+          {/* COLUMN 3: COMPANY */}
+          <div className={`${styles.column} ${styles.columnCompany}`}>
+            <h3 className={styles.columnHeading}>Company</h3>
+            <ul className={styles.linkList}>
+              <li><Link href="/" className={styles.footerLink} onClick={handleHomeClick}>Home</Link></li>
+              <li><Link href="/about" className={styles.footerLink}>About Us</Link></li>
+              <li><Link href="/contact" className={styles.footerLink}>Contact Us</Link></li>
+            </ul>
+          </div>
+
+          {/* COLUMN 4: LEGAL */}
+          <div className={`${styles.column} ${styles.columnLegal}`}>
+            <h3 className={styles.columnHeading}>Legal</h3>
+            <ul className={styles.linkList}>
+              <li><span className={`${styles.footerLink} ${styles.disabledLink}`}>Privacy Policy</span></li>
+              <li><span className={`${styles.footerLink} ${styles.disabledLink}`}>Terms of Service</span></li>
+            </ul>
+          </div>
+
+        </div>
+
+        {/* BOTTOM SECTION: SOCIALS & COPYRIGHT */}
+        <div className={styles.bottomBar}>
+          
+          {/* SOCIAL ICONS */}
+          <div className={styles.socialIcons}>
+            <a href="https://www.instagram.com/divij_bajaj5?igsh=NGszdWpnbm1id20w" target="_blank" rel="noopener noreferrer" className={styles.socialBtn}>
+              <FaInstagram size={20} />
+            </a>
+            <a href="https://youtube.com/@padhaiwithdivij?si=uhS23F1KoLBynHSp" target="_blank" rel="noopener noreferrer" className={styles.socialBtn}>
+              <FaYoutube size={20} />
+            </a>
+            <a href="#" className={`${styles.socialBtn} ${styles.disabledLink}`}>
+              <FaLinkedin size={20} />
+            </a>
+            <a href="#" className={`${styles.socialBtn} ${styles.disabledLink}`}>
+              <FaGithub size={20} />
+            </a>
+          </div>
+
+          {/* COPYRIGHT */}
+          <p className={styles.copyright}>
+            © {currentYear} Thinklytics AI. All rights reserved.
           </p>
 
         </div>
 
       </div>
-    </motion.footer>
+    </footer>
   );
 }

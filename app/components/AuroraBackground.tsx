@@ -7,8 +7,6 @@ export default function AuroraBackground() {
       style={{ isolation: 'isolate' }}
     >
       <div className="aurora aurora-1"></div>
-      <div className="aurora aurora-2"></div>
-      <div className="aurora aurora-3"></div>
       
       {/* Texture Layer */}
       <div className="grid-bg"></div>

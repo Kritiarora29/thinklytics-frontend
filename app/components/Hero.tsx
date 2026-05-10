@@ -2,64 +2,86 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import MentorHighlight from "./MentorHighlight";
+import styles from "./Hero.module.css";
 
 export default function Hero() {
   return (
-    <section className="relative bg-black">
+    <section className={styles.heroSection}>
+      
+      {/* Background Glows */}
+      <div className={styles.glowTop} />
+      <div className={styles.glowBottom} />
 
-      <div className="
-        min-h-screen
-        flex flex-col items-center justify-center text-center
-        px-6
-        pt-48 md:pt-44
-        pb-10
-        relative overflow-hidden
-      ">
-
-        <div className="relative z-10 max-w-5xl mx-auto">
-
-          <motion.h1
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="
-              font-extrabold leading-[1.05] tracking-tight text-white
-              text-2xl sm:text-3xl md:text-4xl lg:text-5xl
-            "
-          >
-            <span >Let’s Build the Future</span>
-            <br />
-            <span className="neon-text">with AI — Together.</span>
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
-            className="
-              mt-6
-              text-base sm:text-lg md:text-xl
-              text-gray-300
-              max-w-2xl md:max-w-3xl
-              mx-auto
-              leading-relaxed
-            "
-          >
-            Design, build, and scale AI-powered products with speed and precision.
-          </motion.p>
-
+      <div className={styles.container}>
+        <div className={styles.grid}>
+          
+          {/* LEFT CONTENT */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5 }}
-            className="mt-10 flex justify-center gap-4 sm:gap-6 flex-wrap"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <Link href="/services">
-              <span className="bg-shine-effect text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-widest font-mono cursor-pointer border-2 border-white hover:scale-110 hover:shadow-[0_0_30px_rgba(0,240,255,0.5)] transition-all duration-300 px-8 py-4">
-                Get Started
+            <h1 className={styles.heading}>
+              Let's build the <br />
+              future with <br />
+              <span className={styles.gradientText}>
+                AI - Together
               </span>
-            </Link>
+            </h1>
+            
+            <p className={styles.description}>
+              Design, build, and scale AI-powered products with speed and precision. ThinkLytics AI helps you leverage cutting-edge technology to transform your business.
+            </p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+            >
+              <Link href="/services">
+                <button className={styles.ctaButton}>
+                  <span className={styles.ctaText}>
+                    Get Started
+                    <svg className={styles.arrowIcon} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                  <div className={styles.btnOverlay} />
+                </button>
+              </Link>
+            </motion.div>
+
+            {/* Subtle Stat/Social proof */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
+              className={styles.socialProof}
+            >
+            </motion.div>
+          </motion.div>
+
+          {/* RIGHT IMAGE */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8, x: 50 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+            className="relative"
+          >
+            <div className={styles.imageWrapper}>
+              <Image
+                src="/ai_face_hero.png"
+                alt="AI Innovation"
+                fill
+                className={styles.heroImage}
+                priority
+              />
+              {/* Overlay glow */}
+              <div className={styles.imageMask} />
+            </div>
+            
           </motion.div>
 
         </div>

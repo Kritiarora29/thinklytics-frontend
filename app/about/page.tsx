@@ -1,14 +1,9 @@
-"use client";
-
-import { motion } from "framer-motion";
-import AuroraBackground from "../components/AuroraBackground";
+import Image from "next/image";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-black text-white px-6 md:px-16 py-20 relative overflow-hidden">
+    <div className="min-h-screen bg-transparent text-white px-6 md:px-16 py-20 relative overflow-hidden">
       
-      <AuroraBackground />
-
       {/* HEADER */}
       <div className="text-center mb-24 px-4 pt-10 max-w-5xl mx-auto relative z-10 flex flex-col items-center">
         <h2
@@ -25,19 +20,6 @@ export default function AboutPage() {
           Thinklytics AI
         </h2>
         
-        {/* <h1 
-          // className="massive-heading-1"
-          style={{
-            background: "linear-gradient(90deg, #22d3ee, #3b82f6, #a855f7)",
-            WebkitBackgroundClip: "text",
-            backgroundClip: "text",
-            WebkitTextFillColor: "transparent",
-            lineHeight: "1.1",
-          }}
-        >
-          The Intellect Behind AI
-        </h1> */}
-
         <p className="massive-subtitle mt-2">
           Architecting Enterprise Intelligence • Cultivating Global Talent
         </p>
@@ -79,10 +61,13 @@ export default function AboutPage() {
             
             {/* IMAGE */}
             <div className="mentor-image-wrapper border-y-0 border-l-0">
-              <img
+              <Image
                 src="/divijbajaj_profile.png"
                 alt="Divij Bajaj"
-                className="mentor-image"
+                width={500}
+                height={500}
+                className="mentor-image object-cover"
+                priority
               />
             </div>
             

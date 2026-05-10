@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 
+import Image from "next/image";
+
 const events = [
   {
     src: "/gallery1.png",
@@ -22,49 +24,70 @@ const events = [
 
 export default function MediaCarousel() {
   return (
-    <div className="w-full max-w-6xl mx-auto px-6 py-24">
+    <div className="w-full py-32 relative overflow-hidden bg-[#050505]">
       
-      {/* HEADER SECTION FOR GALLERIES TO TIE IT ALL TOGETHER */}
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 blur-[120px] -z-10 rounded-full" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] -z-10 rounded-full" />
+
+      {/* HEADER SECTION */}
       <motion.div 
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-center mb-16"
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="text-center mb-20 px-6"
       >
-        <h2 className="massive-heading-2 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-          Latest Masterclasses
-        </h2>
-        <p className="massive-subtitle">
-          Explore scenes from our most impactful global training camps and enterprise integrations.
-        </p>
       </motion.div>
 
-      {/* STATIC GRID INSTEAD OF SCROLLING CAROUSEL */}
-      <div className="workshop-grid">
-        {events.map((event, i) => (
-          <div key={i} className="workshop-card">
-            
-            {/* IMAGE */}
-            <div className="workshop-image-box">
-              <img
-                src={event.src}
-                alt={event.title}
-                className="workshop-image"
-              />
-            </div>
-            
-            {/* CONTENT */}
-            <div className="workshop-content">
-              <h3 className="text-lg md:text-xl font-bold text-white mb-3 tracking-tight">
-                {event.title}
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed mt-auto">
-                {event.desc}
-              </p>
-            </div>
+      {/* INFINITE CAROUSEL TRACK */}
+      <div className="relative w-full flex items-center">
+        <motion.div 
+          className="flex gap-8"
+          animate={{
+            x: [0, -1800], // Adjust based on total width of one set of items
+          }}
+          transition={{
+            duration: 40,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          style={{ width: "fit-content" }}
+        >
+          {/* Duplicate events 3 times to ensure no gaps */}
+          {[...events, ...events, ...events].map((event, i) => (
+            <div 
+              key={i} 
+              className="workshop-card group flex-shrink-0"
+              style={{ width: "400px" }}
+            >
+              
+              {/* IMAGE BOX */}
+              <div className="workshop-image-box relative">
+                <Image
+                  src={event.src}
+                  alt={event.title}
+                  fill
+                  className="workshop-image object-cover"
+                  sizes="400px"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+              </div>
+              
+              {/* CONTENT BOX */}
+              <div className="workshop-content">
+                <h3>{event.title}</h3>
+                <p>{event.desc}</p>
 
-          </div>
-        ))}
+              </div>
+
+            </div>
+          ))}
+        </motion.div>
+        
+        {/* Gradient Fades on Edges */}
+        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none" />
       </div>
 
     </div>

@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import styles from "./Navbar.module.css";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -15,6 +16,8 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,66 +27,48 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleHomeClick = (e: React.MouseEvent) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
+
   return (
     <motion.nav
       initial={{ y: -80 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 w-full z-[999] transition-all duration-300 ${
-        scrolled 
-          ? "nav-scrolled py-2 shadow-2xl" 
-          : "bg-transparent py-4"
-      }`}
+      className={`${styles.nav} ${scrolled ? styles.scrolled : styles.initial}`}
     >
-      <style>{`
-        .desktop-nav {
-          display: none;
-        }
-        .mobile-hamburger {
-          display: flex;
-        }
-        .mobile-menu-overlay {
-          display: flex;
-        }
-        @media (min-width: 768px) {
-          .desktop-nav {
-            display: flex;
-          }
-          .mobile-hamburger {
-            display: none;
-          }
-          .mobile-menu-overlay {
-            display: none !important;
-          }
-        }
-      `}</style>
-      <div className="max-w-7xl mx-auto px-6 relative z-[1000]">
-        <div className="flex items-center justify-between py-4">
+      <div className={styles.container}>
+        <div className={styles.flexContainer}>
 
-          {/* 🔷 Logo (Clickable → Home) */}
-          <Link href="/" className="flex items-center cursor-pointer group">
-            <Image
-              src="/logo.png"
-              alt="Thinklytics Logo"
-              width={140}
-              height={40}
-              className="transition duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_10px_rgba(0,255,150,0.6)]"
-            />
+          {/* 🔷 Text Logo (Clickable → Home) */}
+          <Link href="/" className={styles.logoText} onClick={handleHomeClick}>
+            <span className={styles.whiteText}>Think</span>
+            <span className={styles.cyanText}>Lytics</span>
           </Link>
 
           {/* 🔘 Desktop Buttons */}
-          <div className="desktop-nav items-center gap-6">
+          <div className={styles.desktopNav}>
             {navLinks.map((link) => (
-              <Link key={link.name} href={link.href}>
-                <button className="nav-btn">{link.name}</button>
+              <Link 
+                key={link.name} 
+                href={link.href} 
+                className={styles.navBtn}
+                onClick={link.href === "/" ? handleHomeClick : undefined}
+              >
+                {link.name}
               </Link>
             ))}
           </div>
 
           {/* 🍔 Mobile Hamburger Icon (Three Dots) */}
-          <div className="mobile-hamburger items-center">
+          <div className={styles.mobileHamburger}>
             <button 
               onClick={() => setIsOpen(!isOpen)} 
-              className="text-white focus:outline-none p-2"
+              className={styles.hamburgerBtn}
               aria-label="Toggle Menu"
             >
               <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -108,23 +93,27 @@ export default function Navbar() {
         <motion.div 
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mobile-menu-overlay flex-col items-center gap-6 pt-12 shadow-2xl"
+          className={styles.mobileMenu}
           style={{ 
-            position: 'fixed',
-            left: 0,
-            top: scrolled ? '56px' : '72px', 
-            width: '100%',
-            height: 'calc(100vh - 56px)',
-            backgroundColor: 'rgba(0, 0, 0, 0.95)',
-            backdropFilter: 'blur(24px)',
-            zIndex: 900,
-            borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-            transition: 'top 0.3s ease'
+            top: scrolled ? '64px' : '88px', 
+            height: scrolled ? 'calc(100vh - 64px)' : 'calc(100vh - 88px)',
           }}
         >
           {navLinks.map((link) => (
-            <Link key={link.name} href={link.href} onClick={() => setIsOpen(false)}>
-              <button className="nav-btn w-64 justify-center py-4 text-lg">{link.name}</button>
+            <Link 
+              key={link.name} 
+              href={link.href} 
+              className={styles.navBtn} 
+              onClick={(e) => {
+                if (link.href === "/") {
+                  handleHomeClick(e);
+                } else {
+                  setIsOpen(false);
+                }
+              }} 
+              style={{ fontSize: '1.25rem', padding: '1rem' }}
+            >
+              {link.name}
             </Link>
           ))}
         </motion.div>

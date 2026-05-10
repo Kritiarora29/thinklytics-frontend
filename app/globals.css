@@ -6,10 +6,15 @@ html, body {
   background-color: #000;
   color: white;
   scroll-behavior: smooth;
+  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-outfit), ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 
 * {
-  transition: all 0.25s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
 }
 
 .neon-text {
@@ -48,10 +53,9 @@ html, body {
 }
 
 @keyframes aurora-swirl {
-  0% { transform: rotate(0deg) scale(1) translate(0, 0); }
-  33% { transform: rotate(120deg) scale(1.1) translate(5%, 10%); }
-  66% { transform: rotate(240deg) scale(0.9) translate(-10%, 5%); }
-  100% { transform: rotate(360deg) scale(1) translate(0, 0); }
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(2%, 5%) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 
 .aurora-1 {
@@ -290,8 +294,8 @@ html, body {
 }
 
 .video-card-wrapper {
-  max-width: 64rem;
-  margin: 4rem auto 0;
+  max-width: 52rem;
+  margin: 2rem auto 0;
   border-radius: 2.5rem;
   padding: 3px;
   background: linear-gradient(135deg, #00f0ff, #3b82f6, #a855f7);
@@ -403,64 +407,132 @@ html, body {
    Workshop Grid Cards
 ------------------------------------- */
 
+/* ----------------------------------
+   Premium Workshop Grid Cards
+------------------------------------- */
+
 .workshop-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
   width: 100%;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .workshop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (min-width: 1024px) {
   .workshop-grid {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 .workshop-card {
-  flex: 1;
-  min-width: 0;
-  background-color: #0f0f14;
-  border: 1px solid rgba(255,255,255,0.05);
-  border-radius: 1.5rem;
+  position: relative;
+  background: rgba(15, 15, 20, 0.4);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2rem;
   overflow: hidden;
-  box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
   display: flex;
   flex-direction: column;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  height: 100%;
+}
+
+.workshop-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), transparent 40%, rgba(168, 85, 247, 0.1));
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 0;
 }
 
 .workshop-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 0 30px rgba(0,255,255,0.15);
+  transform: translateY(-15px) scale(1.02);
+  border-color: rgba(0, 240, 255, 0.3);
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 240, 255, 0.1);
+}
+
+.workshop-card:hover::before {
+  opacity: 1;
 }
 
 .workshop-image-box {
+  position: relative;
   width: 100%;
-  height: 250px;
+  height: 280px;
   overflow: hidden;
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: #000;
+}
+
+/* Scan-line effect */
+.workshop-image-box::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 240, 255, 0.05) 50%,
+    transparent
+  );
+  animation: scanline 4s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes scanline {
+  0% { top: -100%; }
+  100% { top: 100%; }
 }
 
 .workshop-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  filter: saturate(0.8) contrast(1.1);
 }
 
 .workshop-card:hover .workshop-image {
-  transform: scale(1.05);
+  transform: scale(1.15) rotate(2deg);
+  filter: saturate(1.1) contrast(1.2);
 }
 
 .workshop-content {
-  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  padding: 2.5rem 2rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
+}
+
+.workshop-card h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, #00f0ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.workshop-card p {
+  color: #9ca3af;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 500;
 }
 
 /* ----------------------------------
@@ -665,12 +737,12 @@ html, body {
 
 @keyframes pulseLine {
   0% {
-    opacity: 0.4;
-    transform: translateY(0) scaleY(1);
+    opacity: 0.5;
+    transform: translateY(0);
   }
   100% {
-    opacity: 1;
-    transform: translateY(-20px) scaleY(1.05);
+    opacity: 0.8;
+    transform: translateY(-10px);
   }
 }
 
