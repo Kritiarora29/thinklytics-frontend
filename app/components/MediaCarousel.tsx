@@ -1,95 +1,95 @@
 "use client";
 
 import { motion } from "framer-motion";
-
 import Image from "next/image";
+import styles from "./MediaCarousel.module.css";
 
 const events = [
   {
     src: "/gallery1.png",
+    tag: "Masterclass",
     title: "AI Workshop Poster – upGrad",
     desc: "Discover cutting-edge strategies in our exclusive AI masterclass. Access insider knowledge on constructing real GenAI solutions using Python and advanced enterprise LLMs.",
   },
   {
     src: "/gallery2.png",
+    tag: "Training",
     title: "Featured AI Masterclass",
     desc: "Fast-track your career with premium live training sessions focusing on building powerful automation flows and conversational AI pipelines for real-world impact.",
   },
   {
     src: "/gallery3.png",
-    title: "Live AI Workshop – Hands-on Training",
-    desc: "An intensive immersive physical session where industry leaders guide you precisely through building robust AI tools, covering everything from prompt engineering to deployment.",
+    tag: "Hands-on",
+    title: "Live AI Workshop – Training",
+    desc: "An intensive physical session where industry leaders guide you through building robust AI tools, covering everything from prompt engineering to deployment.",
   }
 ];
 
 export default function MediaCarousel() {
   return (
-    <div className="w-full py-32 relative overflow-hidden bg-[#050505]">
+    <section className="w-full pt-48 pb-32 relative overflow-hidden bg-[#050505]">
+      <div className={styles.gridOverlay} />
       
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 blur-[120px] -z-10 rounded-full" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-500/5 blur-[120px] -z-10 rounded-full" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-cyan-500/5 blur-[120px] -z-10 rounded-full" />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-purple-500/5 blur-[120px] -z-10 rounded-full" />
 
-      {/* HEADER SECTION */}
-      <motion.div 
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-center mb-20 px-6"
-      >
-      </motion.div>
-
-      {/* INFINITE CAROUSEL TRACK */}
-      <div className="relative w-full flex items-center">
+      <div className={styles.container}>
         <motion.div 
-          className="flex gap-8"
-          animate={{
-            x: [0, -1800], // Adjust based on total width of one set of items
-          }}
-          transition={{
-            duration: 40,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          style={{ width: "fit-content" }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="mb-24"
         >
-          {/* Duplicate events 3 times to ensure no gaps */}
-          {[...events, ...events, ...events].map((event, i) => (
-            <div 
-              key={i} 
-              className="workshop-card group flex-shrink-0"
-              style={{ width: "400px" }}
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-12 h-[1px] bg-cyan-500" />
+            <span className="text-xs font-mono tracking-[0.4em] text-cyan-500 uppercase">Impact Ledger // Vol. 01</span>
+          </div>
+          
+          <h2 className="text-6xl md:text-8xl font-black text-white tracking-tighter uppercase leading-[0.8] mb-8">
+            Media <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400">Footprint</span>
+          </h2>
+          
+          <p className="text-lg md:text-xl font-bold text-slate-300 max-w-3xl leading-tight border-l-4 border-cyan-500/30 pl-6">
+            Pioneering the AI Revolution: Empowering Global Institutions Through Hands-On Innovation.
+          </p>
+        </motion.div>
+
+        <div className={styles.grid}>
+          {events.map((event, i) => (
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className={styles.card}
             >
+              <div className={styles.grainOverlay} />
+              <div className={styles.glint} />
               
-              {/* IMAGE BOX */}
-              <div className="workshop-image-box relative">
+              <div className={styles.imageWrapper}>
                 <Image
                   src={event.src}
                   alt={event.title}
                   fill
-                  className="workshop-image object-cover"
-                  sizes="400px"
+                  className={styles.image}
+                  sizes="(max-width: 1024px) 100vw, 33vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+                <div className={styles.overlay} />
               </div>
               
-              {/* CONTENT BOX */}
-              <div className="workshop-content">
-                <h3>{event.title}</h3>
-                <p>{event.desc}</p>
-
+              <div className={styles.content}>
+                <span className={styles.badge}>{event.tag}</span>
+                <h3 className={styles.title}>{event.title}</h3>
+                <p className={styles.desc}>{event.desc}</p>
               </div>
-
-            </div>
+            </motion.div>
           ))}
-        </motion.div>
-        
-        {/* Gradient Fades on Edges */}
-        <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#050505] to-transparent z-20 pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#050505] to-transparent z-20 pointer-events-none" />
+        </div>
       </div>
-
-    </div>
+    </section>
   );
-}
+}

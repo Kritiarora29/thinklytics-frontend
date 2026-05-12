@@ -10,61 +10,107 @@ export default function MentorHighlight() {
   return (
     <section className="w-full bg-black overflow-hidden py-32 lg:py-40">
       <div className={styles.container}>
-        
-        {/* MENTOR SHOWCASE SECTION */}
-        <div className={`${styles.showcaseGrid} mt-20 lg:mt-32`}>
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className={styles.mainWrapper}
+        >
+          {/* ULTRA PREMIUM DECOR */}
+          <div className={styles.grainOverlay} />
+          <div className={styles.glint} />
+          <div className={styles.gridOverlay} />
           
-          {/* LEFT: CONTENT */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            
-            <h2 className={styles.showcaseHeading}>
-              The Future is <br />
-              <span className={styles.highlightText}>Artificial Intelligence</span>
-            </h2>
-            
-            <div className="flex flex-col gap-4 mb-8">
-              <h3 className="text-xl md:text-2xl font-black text-white border-l-4 border-cyan-500 pl-4">
-                Master GenAI Tools & Frameworks
-              </h3>
-              <h3 className="text-xl md:text-2xl font-black text-white border-l-4 border-purple-500 pl-4">
-                Build Production-Ready AI Agents
-              </h3>
-              <h3 className="text-xl md:text-2xl font-black text-white border-l-4 border-blue-500 pl-4">
-                Scale Your Business with Automation
-              </h3>
-            </div>
+          {/* VIBRANT GLOWS */}
+          <div className="absolute -top-1/4 -right-1/4 w-1/2 h-1/2 bg-cyan-500/10 blur-[150px] -z-10 rounded-full" />
+          <div className="absolute -bottom-1/4 -left-1/4 w-1/2 h-1/2 bg-purple-500/10 blur-[150px] -z-10 rounded-full" />
 
-          </motion.div>
+          <div className={`${styles.corner} ${styles.topLeft}`} />
+          <div className={`${styles.corner} ${styles.topRight}`} />
+          <div className={`${styles.corner} ${styles.bottomLeft}`} />
+          <div className={`${styles.corner} ${styles.bottomRight}`} />
 
-          {/* RIGHT: MEDIA */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className={styles.mediaWrapper}
-          >
-            <iframe
-              className={styles.videoIframe}
-              src="https://www.youtube.com/embed/0JHypbaymQI"
-              title="Sandeep Maheshwari x Divij Bajaj AI Session"
-              allowFullScreen
-            />
+          <div className={styles.showcaseGrid}>
             
-            {/* NAME CARD OVERLAY */}
-            <div className={styles.nameCard}>
-              <h5>Divij Bajaj</h5>
-              <p>Leading AI Developer & Consultant</p>
-              <p className={styles.university}>IIT Delhi Alumni</p>
-            </div>
-          </motion.div>
+            {/* LEFT: CONTENT */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex -space-x-2">
+                  <div className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+                  <div className="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.8)] animate-pulse" />
+                </div>
+                <span className="text-[10px] font-mono tracking-[0.3em] text-slate-400 uppercase">
+                  Thinklytics // Neural Architecture
+                </span>
+              </div>
+              
+              <h2 className={styles.showcaseHeading}>
+                <span className={styles.outlineText}>The Future is</span>
+                <span className={styles.highlightText}>Artificial Intelligence</span>
+              </h2>
+              
+              <div className="flex flex-col gap-5 mb-8">
+                <div className={styles.bulletPoint}>
+                  <div className={`${styles.bulletIcon} bg-cyan-500/10 text-cyan-400`}>
+                    <Sparkles size={24} />
+                  </div>
+                  <span className={styles.bulletText}>Master GenAI Tools & Frameworks</span>
+                </div>
 
-        </div>
+                <div className={styles.bulletPoint}>
+                  <div className={`${styles.bulletIcon} bg-purple-500/10 text-purple-400`}>
+                    <Cpu size={24} />
+                  </div>
+                  <span className={styles.bulletText}>Build Production-Ready AI Agents</span>
+                </div>
+
+                <div className={styles.bulletPoint}>
+                  <div className={`${styles.bulletIcon} bg-blue-500/10 text-blue-400`}>
+                    <Rocket size={24} />
+                  </div>
+                  <span className={styles.bulletText}>Scale Your Business with Automation</span>
+                </div>
+              </div>
+
+            </motion.div>
+
+            {/* RIGHT: MEDIA */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className={styles.mediaWrapper}
+            >
+              <iframe
+                className={styles.videoIframe}
+                src="https://www.youtube.com/embed/0JHypbaymQI"
+                title="Sandeep Maheshwari x Divij Bajaj AI Session"
+                allowFullScreen
+              />
+              
+              {/* NAME CARD OVERLAY */}
+              <div className={styles.nameCard}>
+                <div className="flex flex-col">
+                  <h5>Divij Bajaj</h5>
+                  <p>Leading AI Developer & Consultant</p>
+                </div>
+                <div className="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
+                  <span className={styles.university}>IIT Delhi Alumni</span>
+                  <div className="h-1 w-1 rounded-full bg-slate-700" />
+                  <span className="text-[10px] font-mono text-cyan-500/70 tracking-tighter uppercase">Protocol: High_Excellence</span>
+                </div>
+              </div>
+            </motion.div>
+
+          </div>
+        </motion.div>
       </div>
     </section>
   );
