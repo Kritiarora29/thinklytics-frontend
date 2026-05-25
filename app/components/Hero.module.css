@@ -177,6 +177,8 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1/1;
+  mask-image: radial-gradient(circle at center, black 55%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at center, black 55%, transparent 85%);
 }
 
 .heroImage {

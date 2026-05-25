@@ -25,9 +25,9 @@ export default function Hero() {
           >
             <h1 className={styles.heading}>
               Let's build the <br />
-              future with <br />
+              future with AI,{" "}
               <span className={styles.gradientText}>
-                AI - Together
+                not by AI.
               </span>
             </h1>
             
@@ -83,7 +83,6 @@ export default function Hero() {
             </div>
             
           </motion.div>
-
         </div>
       </div>
 
