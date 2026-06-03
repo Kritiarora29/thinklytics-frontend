@@ -35,7 +35,7 @@ export default function MeetTheFounder() {
           viewport={{ once: true }}
           className={`${mentorStyles.heading} mb-16`}
         >
-          Meet <span className={mentorStyles.headingHighlight}>the Mentor</span>
+          Meet <span className={mentorStyles.headingHighlight}>the Founder</span>
         </motion.h2>
 
         <motion.div 

@@ -45,9 +45,9 @@ export default function MentorHighlight() {
                   <div className="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
                   <div className="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.8)] animate-pulse" />
                 </div>
-                <span className="text-[10px] font-mono tracking-[0.3em] text-slate-400 uppercase">
+                {/* <span className="text-[10px] font-mono tracking-[0.3em] text-slate-400 uppercase">
                   Thinklytics // Neural Architecture
-                </span>
+                </span> */}
               </div>
               
               <h2 className={styles.showcaseHeading}>
