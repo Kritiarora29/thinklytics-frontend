@@ -47,7 +47,7 @@ export default function Navbar() {
           {/* 🔷 Text Logo (Clickable → Home) */}
           <Link href="/" className={styles.logoText} onClick={handleHomeClick}>
             <span className={styles.whiteText}>Think</span>
-            <span className={styles.cyanText}>Lytics</span>
+            <span className={styles.cyanText}>lytics</span>
           </Link>
 
           {/* 🔘 Desktop Buttons */}

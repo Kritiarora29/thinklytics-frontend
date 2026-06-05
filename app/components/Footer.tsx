@@ -27,7 +27,7 @@ export default function Footer() {
           <div className={styles.columnLogo}>
             <Link href="/" className={styles.logoText} onClick={handleHomeClick}>
               <span className={styles.whiteText}>Think</span>
-              <span className={styles.cyanText}>Lytics</span>
+              <span className={styles.cyanText}>lytics</span>
             </Link>
             <a href="mailto:Thinklyticsaiconsulting@gmail.com" className={styles.emailWrapper}>
               <FaEnvelope className={styles.emailIcon} />
