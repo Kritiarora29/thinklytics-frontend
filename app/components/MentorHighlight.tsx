@@ -99,13 +99,9 @@ export default function MentorHighlight() {
               <div className={styles.nameCard}>
                 <div className="flex flex-col">
                   <h5>Divij Bajaj</h5>
-                  <p>Leading AI Developer & Consultant</p>
+                  <p>Data & Applied Scientist at Microsoft</p>
                 </div>
-                <div className="flex items-center gap-3 mt-4 pt-4 border-t border-white/5">
-                  <span className={styles.university}>IIT Delhi Alumni</span>
-                  <div className="h-1 w-1 rounded-full bg-slate-700" />
-                  <span className="text-[10px] font-mono text-cyan-500/70 tracking-tighter uppercase">Protocol: High_Excellence</span>
-                </div>
+
               </div>
             </motion.div>
 
