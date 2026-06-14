@@ -53,7 +53,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.6 }}
         >
           <h2 className={styles.heading}>
-            Our <span className={styles.headingHighlight}>Expertise</span>
+            What we <span className={styles.headingHighlight}>Offer</span>
           </h2>
           <p className={styles.subheading}>
             Empowering your digital transformation journey with cutting-edge AI solutions and strategic consulting.
