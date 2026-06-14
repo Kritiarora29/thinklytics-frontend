@@ -1,0 +1,164 @@
+.slicerSection {
+  padding: 4rem 0;
+  background-color: transparent;
+  overflow: hidden;
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.subHeading {
+  color: #60a5fa;
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.mainHeading {
+  color: #ffffff;
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.slicerContainer {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Optional gradient mask for smooth fade out at edges */
+.slicerContainer::before,
+.slicerContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.slicerContainer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--background, #0a0a0a) 0%, transparent 100%);
+}
+
+.slicerContainer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--background, #0a0a0a) 0%, transparent 100%);
+}
+
+.slicerTrack {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scroll 40s linear infinite;
+}
+
+.slicerTrack:hover {
+  animation-play-state: paused;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 500px;
+  height: 350px;
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.imageWrapper:hover {
+  transform: scale(1.02);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 80%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.textContainer {
+  transform: translateY(20px);
+  transition: transform 0.3s ease;
+}
+
+.imageWrapper:hover .textContainer {
+  transform: translateY(0);
+}
+
+.tagLine {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.description {
+  color: #cbd5e1;
+  font-size: 1rem;
+  margin: 0.5rem 0 0 0;
+  line-height: 1.4;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.imageWrapper:hover .description {
+  opacity: 1;
+  max-height: 100px;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+
+@media (max-width: 768px) {
+  .subHeading {
+    font-size: 2rem;
+  }
+  .mainHeading {
+    font-size: 2.5rem;
+  }
+  .imageWrapper {
+    width: 320px;
+    height: 220px;
+  }
+  
+  .slicerContainer::before,
+  .slicerContainer::after {
+    width: 50px;
+  }
+  .tagLine {
+    font-size: 1.1rem;
+  }
+  .overlay {
+    padding: 1.5rem;
+  }
+}
