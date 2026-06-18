@@ -118,21 +118,21 @@ export default function MeetTheFounder() {
               className={mentorStyles.sidePanel}
             >
               <InfoCard 
-                icon={<GraduationCap size={22} />} 
-                title="GenAI Architect" 
-                description="Specializing in high-scale Generative AI systems at Microsoft." 
+                icon={<Briefcase size={22} />} 
+                title="AI Solutions Architect" 
+                description="Building scalable AI systems and innovative solutions that solve complex business challenges." 
                 delay={0.4}
               />
               <InfoCard 
-                icon={<Briefcase size={22} />} 
-                title="AI Educator" 
-                description="Empowering global learners in Deep Learning and NLP through Edu.AI." 
+                icon={<GraduationCap size={22} />} 
+                title="Global AI Educator & Mentor" 
+                description="Empowering students, professionals, and organizations through impactful AI workshops, training programs, and mentorship initiatives." 
                 delay={0.5}
               />
               <InfoCard 
                 icon={<Star size={22} />} 
-                title="Strategic Innovator" 
-                description="Developing autonomous AI agents for enterprise digital transformation." 
+                title="Digital Transformation Leader" 
+                description="Helping businesses and institutions leverage AI-powered products, automation, and intelligent solutions to accelerate growth and transformation." 
                 delay={0.6}
               />
             </motion.div>
