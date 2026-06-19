@@ -1,6 +1,7 @@
 import Hero from "./components/Hero";
-import SlicerSection from "./components/SlicerSection";
+import MentorHighlight from "./components/MentorHighlight";
 import ServicesSection from "./components/ServicesSection";
+import SlicerSection from "./components/SlicerSection";
 import ClientsSection from "./components/ClientsSection";
 import MeetTheFounder from "./components/MeetTheFounder";
 
@@ -8,8 +9,9 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <SlicerSection />
+      <MentorHighlight />
       <ServicesSection />
+      <SlicerSection />
       <ClientsSection />
       <MeetTheFounder />
     </main>

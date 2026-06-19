@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import MentorHighlight from "./MentorHighlight";
 import styles from "./HeroStyles.module.css";
 
 export default function Hero() {
@@ -61,8 +60,6 @@ export default function Hero() {
           </motion.div>
         </motion.div>
       </div>
-
-      <MentorHighlight />
     </section>
   );
-}
+}

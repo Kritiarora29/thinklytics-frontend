@@ -70,19 +70,19 @@ export default function MeetTheFounder() {
               <InfoCard 
                 icon={<Users size={22} />} 
                 title="1,000,000+" 
-                description="Learners Worldwide" 
+                description="Learners trained worldwide, sharing advanced knowledge and practical insights in AI and machine learning." 
                 delay={0.1}
               />
               <InfoCard 
                 icon={<Calendar size={22} />} 
                 title="6+ Years" 
-                description="Industry Experience" 
+                description="Of industry experience leading software engineering, designing AI models, and scaling data platforms." 
                 delay={0.2}
               />
               <InfoCard 
                 icon={<Building2 size={22} />} 
                 title="30+ Brands" 
-                description="Brands Transformed" 
+                description="Successfully helped startups and enterprises implement AI systems, optimize workflows, and drive growth." 
                 delay={0.3}
               />
             </motion.div>
@@ -120,19 +120,19 @@ export default function MeetTheFounder() {
               <InfoCard 
                 icon={<Briefcase size={22} />} 
                 title="AI Solutions Architect" 
-                description="Building scalable AI systems and innovative solutions that solve complex business challenges." 
+                description="Designing scalable AI systems and innovative solutions to solve complex business challenges." 
                 delay={0.4}
               />
               <InfoCard 
                 icon={<GraduationCap size={22} />} 
                 title="Global AI Educator & Mentor" 
-                description="Empowering students, professionals, and organizations through impactful AI workshops, training programs, and mentorship initiatives." 
+                description="Empowering individuals and organizations through AI training, workshops, and mentorship." 
                 delay={0.5}
               />
               <InfoCard 
                 icon={<Star size={22} />} 
                 title="Digital Transformation Leader" 
-                description="Helping businesses and institutions leverage AI-powered products, automation, and intelligent solutions to accelerate growth and transformation." 
+                description="Enabling businesses to drive growth through AI-powered products, automation, and intelligent solutions." 
                 delay={0.6}
               />
             </motion.div>
