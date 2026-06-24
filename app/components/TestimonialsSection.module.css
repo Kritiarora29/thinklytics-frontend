@@ -1,0 +1,325 @@
+.testimonialSection {
+  padding: 6rem 0;
+  background-color: #030303;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 2;
+}
+
+.subHeading {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #00f0ff;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.mainHeading {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.headingHighlight {
+  background: linear-gradient(135deg, #00f0ff 10%, #3b82f6 50%, #a855f7 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 3D Perspective Area */
+.perspectiveContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+  z-index: 2;
+}
+
+.sliderTrack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+.card3D {
+  position: absolute;
+  width: 480px;
+  min-height: 280px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.card3D:hover {
+  border-color: rgba(0, 240, 255, 0.35);
+  box-shadow: 
+    0 40px 80px -20px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(0, 240, 255, 0.15);
+}
+
+.grainOverlay {
+  position: absolute;
+  inset: 0;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+.glowDot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle 120px at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(0, 240, 255, 0.06), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.card3D:hover .glowDot {
+  opacity: 1;
+}
+
+.quoteContainer {
+  position: relative;
+  z-index: 3;
+  margin-bottom: 1.5rem;
+}
+
+.quoteIcon {
+  font-size: 3.5rem;
+  font-family: serif;
+  line-height: 1;
+  color: rgba(0, 240, 255, 0.15);
+  position: absolute;
+  top: -1.5rem;
+  left: -0.5rem;
+  pointer-events: none;
+}
+
+.quoteText {
+  color: #e2e8f0;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  font-weight: 500;
+  position: relative;
+  z-index: 1;
+}
+
+.profileContainer {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  position: relative;
+  z-index: 3;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.25rem;
+}
+
+.avatarWrapper {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(135deg, #00f0ff, #a855f7);
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #0c0c0e;
+  border: 2px solid #0c0c0e;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.designation {
+  color: #00f0ff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.15rem;
+  line-height: 1.2;
+}
+
+.company {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Side Nav Controls */
+.navBtnSide {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(8, 8, 12, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  z-index: 50; /* Above cards */
+}
+
+.leftBtn {
+  left: 2rem;
+}
+
+.rightBtn {
+  right: 2rem;
+}
+
+.navBtnSide:hover {
+  color: #00f0ff;
+  border-color: rgba(0, 240, 255, 0.4);
+  background: rgba(0, 240, 255, 0.05);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(0, 240, 255, 0.25);
+}
+
+.navBtnSide:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+
+/* Mobile responsive adjustments */
+@media (max-width: 1024px) {
+  .perspectiveContainer {
+    height: 440px;
+  }
+  .leftBtn {
+    left: 1rem;
+  }
+  .rightBtn {
+    right: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonialSection {
+    padding: 4rem 0;
+  }
+
+  .perspectiveContainer {
+    height: 400px;
+  }
+
+  .card3D {
+    width: 380px;
+    padding: 1.75rem;
+    min-height: 250px;
+  }
+
+  .quoteText {
+    font-size: 0.95rem;
+  }
+
+  .navBtnSide {
+    width: 46px;
+    height: 46px;
+  }
+  .leftBtn {
+    left: 0.5rem;
+  }
+  .rightBtn {
+    right: 0.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .card3D {
+    width: 320px;
+    padding: 1.5rem;
+    min-height: 230px;
+  }
+
+
+  .navBtnSide {
+    width: 42px;
+    height: 42px;
+  }
+  .leftBtn {
+    left: 0.2rem;
+  }
+  .rightBtn {
+    right: 0.2rem;
+  }
+}

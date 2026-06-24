@@ -15,6 +15,7 @@ export default function Hero() {
           src="/ai_face_hero.png"
           alt="AI Innovation Background"
           fill
+          sizes="100vw"
           className={styles.bgImage}
           priority
         />

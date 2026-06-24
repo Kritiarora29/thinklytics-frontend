@@ -34,6 +34,7 @@ export default function SlicerSection() {
                   src={`/slicer/${item.src}`} 
                   alt={title} 
                   fill
+                  sizes="(max-width: 768px) 320px, 500px"
                   className={styles.image}
                 />
                 <div className={styles.overlay}>

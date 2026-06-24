@@ -4,6 +4,8 @@ import ServicesSection from "./components/ServicesSection";
 import SlicerSection from "./components/SlicerSection";
 import ClientsSection from "./components/ClientsSection";
 import MeetTheFounder from "./components/MeetTheFounder";
+import TestimonialsSection from "./components/TestimonialsSection";
+import TestimonialsMarqueeSection from "./components/TestimonialsMarqueeSection";
 
 export default function Home() {
   return (
@@ -13,6 +15,8 @@ export default function Home() {
       <ServicesSection />
       <SlicerSection />
       <ClientsSection />
+      <TestimonialsSection />
+      <TestimonialsMarqueeSection />
       <MeetTheFounder />
     </main>
   );
