@@ -71,6 +71,17 @@ export default function TestimonialsSection() {
   const isTablet = windowWidth < 1024;
   const offsetX = isMobile ? 0 : isTablet ? 180 : 280;
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Auto-sliding autoplay interval (pauses on hover)
+  useEffect(() => {
+    if (!mounted || isHovered) return;
+    const interval = setInterval(() => {
+      handleNext();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [mounted, isHovered]);
+
   const N = testimonialsData.length;
 
   const handlePrev = () => {
@@ -182,7 +193,11 @@ export default function TestimonialsSection() {
         </div>
 
         {/* 3D PERSPECTIVE CAROUSEL SLIDER */}
-        <div className={styles.perspectiveContainer}>
+        <div 
+          className={styles.perspectiveContainer}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           {/* Side navigation arrows */}
           <button 
             onClick={handlePrev} 
