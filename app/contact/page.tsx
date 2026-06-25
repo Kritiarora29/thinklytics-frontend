@@ -58,7 +58,10 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0f1e] text-white px-6 md:px-16 py-20 relative overflow-hidden flex items-center justify-center">
+    <div 
+      className="min-h-screen bg-[#0a0f1e] text-white px-6 md:px-16 pb-20 relative overflow-hidden flex items-center justify-center"
+      style={{ paddingTop: "100px" }}
+    >
 
       {/* 💨 AMBIENT BLURRED GRADIENT BACKGROUND ORBS */}
       <div className="absolute inset-0 w-full h-full pointer-events-none z-0">

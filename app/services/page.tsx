@@ -1,51 +1,30 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Presentation, Cpu, Rocket } from "lucide-react";
 import AuroraBackground from "../components/AuroraBackground";
 import ParallaxSection from "../components/ParallaxSection";
 
 export default function ServicesPage() {
   const services = [
     {
-      title: "AI Strategy & Consulting",
-      icon: (
-        <svg viewBox="0 0 24 24" className="w-10 h-10">
-          <path fill="currentColor" d="M12 2a5 5 0 015 5v3h1a3 3 0 013 3v5h-2v-5a1 1 0 00-1-1h-1v6h-2v-6H9v6H7v-6H6a1 1 0 00-1 1v5H3v-5a3 3 0 013-3h1V7a5 5 0 015-5z" />
-        </svg>
-      ),
-      desc: "Develop a robust AI roadmap aligned with your business goals. Our experts help you navigate complexities and identify high-impact use cases.",
-      features: ["Readiness Assessment", "ROI Analysis", "Tech Stack Selection"]
+      title: "AI Consulting & Capability Building",
+      icon: <Presentation size={40} />,
+      desc: "Helping organizations, institutions, and leaders successfully adopt AI through strategic consulting, training, and capability development.",
+      features: ["Readiness Assessment", "ROI Analysis", "GenAI Workshops", "Tech Stack Selection"]
     },
     {
-      title: "Custom AI Development",
-      icon: (
-        <svg viewBox="0 0 24 24" className="w-10 h-10">
-          <path fill="currentColor" d="M12 2l4 8h-3v6h-2v-6H8l4-8z" />
-        </svg>
-      ),
-      desc: "Build scalable and secure AI solutions tailored to your unique needs. Specializing in LLMs, computer vision, and predictive models.",
-      features: ["LLM Integration", "Predictive Modeling", "NLP Solutions"]
+      title: "AI Solutions & Product Engineering",
+      icon: <Cpu size={40} />,
+      desc: "Designing and building intelligent AI-powered products, applications, and digital solutions tailored to business needs.",
+      features: ["Custom AI Development", "LLM Integration", "Predictive Modeling", "NLP Solutions"]
     },
     {
-      title: "GenAI Workshops",
-      icon: (
-        <svg viewBox="0 0 24 24" className="w-10 h-10">
-          <path fill="currentColor" d="M3 4h18v2H3V4m0 4h18v12H3V8m2 2v8h14v-8H5z" />
-        </svg>
-      ),
-      desc: "Empower your team with hands-on GenAI workshops. Learn to leverage state-of-the-art tools to automate workflows and drive innovation.",
-      features: ["Prompt Engineering", "Workflow Automation", "AI Ethics & Safety"]
-    },
-    {
-      title: "Model Fine-Tuning",
-      icon: (
-        <svg viewBox="0 0 24 24" className="w-10 h-10">
-          <path fill="currentColor" d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c2.12 0 4.07-.74 5.61-1.97l3.68 3.68c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41l-3.68-3.68C19.26 16.07 20 14.12 20 12c0-4.97-4.03-9-9-9zm0 16c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7z" />
-        </svg>
-      ),
-      desc: "Adapt foundational models to your specific domain. We fine-tune models on your proprietary data for higher accuracy and relevance.",
-      features: ["Domain Adaptation", "RLHF", "Model Optimization"]
-    },
+      title: "Innovation & Digital Transformation",
+      icon: <Rocket size={40} />,
+      desc: "Partnering with organizations to drive innovation, automate operations, and accelerate digital transformation through AI.",
+      features: ["Workflow Automation", "Process Optimization", "AI Agentic Workflows", "Scale & Infrastructure"]
+    }
   ];
 
   const containerVariants = {
@@ -64,7 +43,10 @@ export default function ServicesPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white px-6 md:px-16 pt-28 md:pt-36 pb-20 relative overflow-hidden">
+    <div 
+      className="min-h-screen bg-black text-white px-6 md:px-16 pb-20 relative overflow-hidden"
+      style={{ paddingTop: "160px" }}
+    >
       <AuroraBackground />
 
       {/* 🔥 TITLE */}
@@ -79,9 +61,9 @@ export default function ServicesPage() {
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            lineHeight: "1.1",
+            lineHeight: "1.3",
             paddingTop: "2rem",
-
+            paddingBottom: "0.2em"
           }}
         >
           Transform with AI
@@ -110,9 +92,9 @@ export default function ServicesPage() {
           max-width: 85rem;
           margin: 0 auto;
         }
-        @media (min-width: 1024px) {
+        @media (min-width: 900px) {
           .custom-services-grid {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
           }
         }
         .custom-service-inner {
@@ -120,15 +102,15 @@ export default function ServicesPage() {
           flex-direction: column;
           align-items: flex-start;
           padding: 2rem;
-          height: 100%;
+          flex: 1;
+          width: 100%;
           gap: 1.5rem;
           background-color: #0b0b0b;
           border-radius: 1.8rem;
+          height: 100%;
         }
         @media (min-width: 768px) {
           .custom-service-inner {
-            flex-direction: row;
-            align-items: center;
             padding: 2.5rem;
             gap: 2rem;
           }
@@ -169,7 +151,7 @@ export default function ServicesPage() {
         viewport={{ once: true, margin: "-100px" }}
       >
         {services.map((item, i) => (
-          <motion.div key={i} variants={itemVariants} className="service-card-wrapper !mb-0" style={{ maxWidth: '100%', height: '100%' }} whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
+          <motion.div key={i} variants={itemVariants} className="service-card-wrapper !mb-0" style={{ maxWidth: '100%', height: '100%', display: 'flex', flexDirection: 'column' }} whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300 }}>
             <div className="custom-service-inner">
               
               {/* 🔹 ICON */}

@@ -2,7 +2,10 @@ import Image from "next/image";
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen bg-transparent text-white px-6 md:px-16 py-20 relative overflow-hidden">
+    <div 
+      className="min-h-screen bg-transparent text-white px-6 md:px-16 pb-20 relative overflow-hidden"
+      style={{ paddingTop: "160px" }}
+    >
       
       {/* HEADER */}
       <div className="text-center mb-24 px-4 pt-10 max-w-5xl mx-auto relative z-10 flex flex-col items-center">
@@ -12,8 +15,9 @@ export default function AboutPage() {
             WebkitBackgroundClip: "text",
             backgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            lineHeight: "1.1",
+            lineHeight: "1.3",
             paddingTop: "2rem",
+            paddingBottom: "0.2em",
           }}
           className="massive-heading-1 "
         >
@@ -106,7 +110,8 @@ export default function AboutPage() {
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              lineHeight: "1.1",
+              lineHeight: "1.3",
+              paddingBottom: "0.2em",
             }}>
             Core Expertise
           </h2>
