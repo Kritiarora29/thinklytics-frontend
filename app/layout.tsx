@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://thinklytics.ai"),
   title: "Thinklytics AI | Build the Future with AI",
   description: "Design, build, and scale AI-powered products with speed and precision. Thinklytics AI helps you leverage cutting-edge technology to transform your business.",
   keywords: ["AI", "Artificial Intelligence", "Product Development", "Machine Learning", "Innovation"],
@@ -47,8 +48,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${outfit.variable}`}>
-      <body className="antialiased">
+    <html lang="en" className={`${inter.variable} ${outfit.variable}`} suppressHydrationWarning>
+      <body className="antialiased" suppressHydrationWarning>
         <Navbar />
         <AuroraBackground />
         {children}

@@ -56,7 +56,6 @@ export default function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [windowWidth, setWindowWidth] = useState(1200);
 
-  // Monitor screen resizing to adapt 3D spacing offsets dynamically
   useEffect(() => {
     setMounted(true);
     if (typeof window !== "undefined") {
@@ -67,20 +66,22 @@ export default function TestimonialsSection() {
     }
   }, []);
 
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Autoplay functionality: advances slide every 5 seconds, pauses when hovered
+  useEffect(() => {
+    if (!mounted || isHovered) return;
+
+    const autoplayInterval = setInterval(() => {
+      handleNext();
+    }, 1500);
+
+    return () => clearInterval(autoplayInterval);
+  }, [mounted, isHovered]);
+
   const isMobile = windowWidth < 640;
   const isTablet = windowWidth < 1024;
   const offsetX = isMobile ? 0 : isTablet ? 180 : 280;
-
-  const [isHovered, setIsHovered] = useState(false);
-
-  // Auto-sliding autoplay interval (pauses on hover)
-  useEffect(() => {
-    if (!mounted || isHovered) return;
-    const interval = setInterval(() => {
-      handleNext();
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [mounted, isHovered]);
 
   const N = testimonialsData.length;
 
@@ -164,7 +165,7 @@ export default function TestimonialsSection() {
   return (
     <section className={styles.testimonialSection}>
       <div className={styles.gridOverlay} />
-      
+
       {/* Background Decor Glows */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/5 blur-[150px] -z-10 rounded-full" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500/5 blur-[150px] -z-10 rounded-full" />
@@ -172,7 +173,7 @@ export default function TestimonialsSection() {
       <div className="container mx-auto px-4 relative z-10">
         {/* HEADING */}
         <div className={styles.header}>
-          <motion.span 
+          <motion.span
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -181,7 +182,7 @@ export default function TestimonialsSection() {
           >
             Success Stories
           </motion.span>
-          <motion.h2 
+          <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -193,14 +194,14 @@ export default function TestimonialsSection() {
         </div>
 
         {/* 3D PERSPECTIVE CAROUSEL SLIDER */}
-        <div 
+        <div
           className={styles.perspectiveContainer}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           {/* Side navigation arrows */}
-          <button 
-            onClick={handlePrev} 
+          <button
+            onClick={handlePrev}
             className={`${styles.navBtnSide} ${styles.leftBtn}`}
             aria-label="Previous Testimonial"
           >
@@ -239,19 +240,19 @@ export default function TestimonialsSection() {
                 >
                   <div className={styles.grainOverlay} />
                   <div className={styles.glowDot} />
-                  
+
                   {/* Quote Content */}
                   <div className={styles.quoteContainer}>
                     <span className={styles.quoteIcon}>“</span>
                     <p className={styles.quoteText}>{item.quote}</p>
                   </div>
-                  
+
                   {/* Profile Layout */}
                   <div className={styles.profileContainer}>
                     <div className={styles.avatarWrapper}>
-                      <img 
-                        src={item.image} 
-                        alt={item.name} 
+                      <img
+                        src={item.image}
+                        alt={item.name}
                         className={styles.avatar}
                       />
                     </div>
@@ -266,8 +267,8 @@ export default function TestimonialsSection() {
             })}
           </div>
 
-          <button 
-            onClick={handleNext} 
+          <button
+            onClick={handleNext}
             className={`${styles.navBtnSide} ${styles.rightBtn}`}
             aria-label="Next Testimonial"
           >
