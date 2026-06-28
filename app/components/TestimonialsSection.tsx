@@ -79,7 +79,7 @@ export default function TestimonialsSection() {
     return () => clearInterval(autoplayInterval);
   }, [mounted, isHovered]);
 
-  const isMobile = windowWidth < 640;
+  const isMobile = windowWidth < 768;
   const isTablet = windowWidth < 1024;
   const offsetX = isMobile ? 0 : isTablet ? 180 : 280;
 
@@ -273,6 +273,36 @@ export default function TestimonialsSection() {
             aria-label="Next Testimonial"
           >
             <ChevronRight size={28} />
+          </button>
+        </div>
+
+        {/* Mobile / Tablet Navigation Dots & Chevrons */}
+        <div className={styles.mobileControls}>
+          <button
+            onClick={handlePrev}
+            className={styles.mobileNavBtn}
+            aria-label="Previous Testimonial"
+          >
+            <ChevronLeft size={20} />
+          </button>
+          
+          <div className={styles.dots}>
+            {testimonialsData.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveIndex(i)}
+                className={`${styles.dot} ${i === activeIndex ? styles.activeDot : ""}`}
+                aria-label={`Go to testimonial ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          <button
+            onClick={handleNext}
+            className={styles.mobileNavBtn}
+            aria-label="Next Testimonial"
+          >
+            <ChevronRight size={20} />
           </button>
         </div>
       </div>

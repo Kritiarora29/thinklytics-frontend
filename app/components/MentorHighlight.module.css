@@ -19,6 +19,19 @@
     inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
+@media (max-width: 1024px) {
+  .mainWrapper {
+    padding: 3.5rem 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainWrapper {
+    padding: 2.5rem 1.5rem;
+    border-radius: 2rem;
+  }
+}
+
 .grainOverlay {
   position: absolute;
   inset: 0;
@@ -113,6 +126,20 @@
 .topRight { top: 2rem; right: 2rem; border-width: 2px 2px 0 0; }
 .bottomLeft { bottom: 2rem; left: 2rem; border-width: 0 0 2px 2px; }
 .bottomRight { bottom: 2rem; right: 2rem; border-width: 0 2px 2px 0; }
+
+@media (max-width: 1024px) {
+  .topLeft { top: 1.5rem; left: 1.5rem; }
+  .topRight { top: 1.5rem; right: 1.5rem; }
+  .bottomLeft { bottom: 1.5rem; left: 1.5rem; }
+  .bottomRight { bottom: 1.5rem; right: 1.5rem; }
+}
+
+@media (max-width: 768px) {
+  .topLeft { top: 1rem; left: 1rem; }
+  .topRight { top: 1rem; right: 1rem; }
+  .bottomLeft { bottom: 1rem; left: 1rem; }
+  .bottomRight { bottom: 1rem; right: 1rem; }
+}
 
 .mainWrapper::after {
   content: '';
@@ -357,7 +384,7 @@
 .showcaseGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 4rem;
+  gap: 2rem;
   align-items: center;
   position: relative;
   z-index: 1;
@@ -383,11 +410,11 @@
 }
 
 .showcaseHeading {
-  font-size: 3rem;
+  font-size: 2.25rem;
   font-weight: 900;
-  line-height: 1;
+  line-height: 1.1;
   color: white;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   letter-spacing: -0.04em;
 }
 
@@ -399,6 +426,12 @@
 }
 
 @media (min-width: 768px) {
+  .showcaseHeading {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
   .showcaseHeading {
     font-size: 3.5rem;
   }
@@ -423,6 +456,14 @@
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .bulletPoint {
+    padding: 1.25rem 1.5rem;
+    gap: 1rem;
+    border-radius: 1.5rem;
+  }
 }
 
 .bulletPoint:hover {
@@ -464,6 +505,12 @@
   font-weight: 700;
   color: #f8fafc;
   letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+  .bulletText {
+    font-size: 1.05rem;
+  }
 }
 
 .showcaseDesc {
@@ -554,8 +601,13 @@
   padding: 2rem;
   background: linear-gradient(to top, rgba(8, 8, 12, 0.95), transparent);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .nameCard {
+    padding: 1rem 1.25rem;
+  }
 }
 
 .nameCard h5 {
@@ -566,11 +618,24 @@
   letter-spacing: -0.01em;
 }
 
+@media (max-width: 768px) {
+  .nameCard h5 {
+    font-size: 1.15rem;
+  }
+}
+
 .nameCard p {
   font-size: 0.9rem;
   color: #94a3b8;
   margin-bottom: 0.5rem;
   font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .nameCard p {
+    font-size: 0.75rem;
+    margin-bottom: 0.25rem;
+  }
 }
 
 .university {

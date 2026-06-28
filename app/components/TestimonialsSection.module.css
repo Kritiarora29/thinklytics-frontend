@@ -273,6 +273,10 @@
   }
 }
 
+.mobileControls {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .testimonialSection {
     padding: 4rem 0;
@@ -293,14 +297,60 @@
   }
 
   .navBtnSide {
-    width: 46px;
-    height: 46px;
+    display: none;
   }
-  .leftBtn {
-    left: 0.5rem;
+
+  .mobileControls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 10;
   }
-  .rightBtn {
-    right: 0.5rem;
+
+  .mobileNavBtn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .mobileNavBtn:hover {
+    color: #00f0ff;
+    border-color: rgba(0, 240, 255, 0.3);
+    background: rgba(0, 240, 255, 0.05);
+  }
+
+  .dots {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .activeDot {
+    background: #00f0ff;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.8);
+    transform: scale(1.25);
   }
 }
 
@@ -311,15 +361,7 @@
     min-height: 230px;
   }
 
-
   .navBtnSide {
-    width: 42px;
-    height: 42px;
-  }
-  .leftBtn {
-    left: 0.2rem;
-  }
-  .rightBtn {
-    right: 0.2rem;
+    display: none;
   }
 }
