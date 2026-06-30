@@ -144,3 +144,19 @@
   padding-top: 3rem;
   transition: top 0.3s ease;
 }
+
+.hamburgerIcon {
+  width: 2rem;
+  height: 2rem;
+  display: block;
+}
+
+.hamburgerIcon path {
+  stroke: #ffffff !important;
+  fill: none !important;
+}
+
+.hamburgerIcon g circle {
+  fill: #ffffff !important;
+}
+

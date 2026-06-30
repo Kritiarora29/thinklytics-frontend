@@ -71,11 +71,11 @@ export default function Navbar() {
               className={styles.hamburgerBtn}
               aria-label="Toggle Menu"
             >
-              <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className={styles.hamburgerIcon} viewBox="0 0 24 24">
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <g fill="currentColor" stroke="none">
+                  <g>
                     <circle cx="12" cy="5" r="2.5" />
                     <circle cx="12" cy="12" r="2.5" />
                     <circle cx="12" cy="19" r="2.5" />
