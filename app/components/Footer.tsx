@@ -90,7 +90,7 @@ export default function Footer() {
 
           {/* COPYRIGHT */}
           <p className={styles.copyright}>
-            © {currentYear} Thinklytics AI. All rights reserved.
+            © {currentYear} ThinklyticsAI. All rights reserved.
           </p>
 
         </div>

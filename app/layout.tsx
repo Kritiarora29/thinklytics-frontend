@@ -10,15 +10,15 @@ const outfit = Outfit({ subsets: ["latin"], variable: "--font-outfit" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://thinklytics.ai"),
-  title: "Thinklytics AI | Build the Future with AI",
-  description: "Design, build, and scale AI-powered products with speed and precision. Thinklytics AI helps you leverage cutting-edge technology to transform your business.",
+  title: "ThinklyticsAI | Build the Future with AI",
+  description: "Design, build, and scale AI-powered products with speed and precision. ThinklyticsAI helps you leverage cutting-edge technology to transform your business.",
   keywords: ["AI", "Artificial Intelligence", "Product Development", "Machine Learning", "Innovation"],
-  authors: [{ name: "Thinklytics AI" }],
+  authors: [{ name: "ThinklyticsAI" }],
   openGraph: {
-    title: "Thinklytics AI",
+    title: "ThinklyticsAI",
     description: "Build the Future with AI — Together.",
     url: "https://thinklytics.ai",
-    siteName: "Thinklytics AI",
+    siteName: "ThinklyticsAI",
     images: [
       {
         url: "/logo.png",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thinklytics AI",
+    title: "ThinklyticsAI",
     description: "Design, build, and scale AI-powered products with speed and precision.",
     images: ["/logo.png"],
   },

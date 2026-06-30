@@ -51,7 +51,7 @@ Purpose: ${body.purpose || 'N/A'}
         if (process.env.TWILIO_SID && process.env.TWILIO_AUTH_TOKEN) {
             const twilioClient = require('twilio')(process.env.TWILIO_SID, process.env.TWILIO_AUTH_TOKEN);
             twilioClient.messages.create({
-                body: `🔥 New Thinklytics Lead!\n\nName: ${body.name}\nEmail: ${body.email}\nPhone: ${body.phone}\nRole: ${body.category}\n\nPurpose: ${body.purpose}`,
+                body: `🔥 New ThinklyticsAI Lead!\n\nName: ${body.name}\nEmail: ${body.email}\nPhone: ${body.phone}\nRole: ${body.category}\n\nPurpose: ${body.purpose}`,
                 from: 'whatsapp:+14155238886', // Twilio Default Sandbox Number
                 to: `whatsapp:${process.env.MY_WHATSAPP_NUMBER}`
             }).catch((err: any) => console.log("WhatsApp Error:", err));

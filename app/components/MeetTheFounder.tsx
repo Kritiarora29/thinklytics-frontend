@@ -106,7 +106,7 @@ export default function MeetTheFounder() {
               <div className={mentorStyles.profileInfo}>
                 <h3 className={mentorStyles.name}>Divij Bajaj</h3>
                 <p className={mentorStyles.title}>Data Scientist II @ Microsoft</p>
-                <p className={mentorStyles.founderTag}>Founder, Thinklytics AI</p>
+                <p className={mentorStyles.founderTag}>Founder, ThinklyticsAI</p>
               </div>
             </motion.div>
 

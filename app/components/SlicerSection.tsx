@@ -20,7 +20,7 @@ export default function SlicerSection() {
   return (
     <section className={styles.slicerSection}>
       <div className={styles.header}>
-        <h2 className={styles.subHeading}>Thinklytics in Action</h2>
+        <h2 className={styles.subHeading}>ThinklyticsAI in Action</h2>
         <h3 className={styles.mainHeading}>Workshops & Masterclasses</h3>
       </div>
       <div className={styles.slicerContainer}>

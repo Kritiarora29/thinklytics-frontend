@@ -21,7 +21,7 @@ export default function AboutPage() {
           }}
           className="massive-heading-1 "
         >
-          Thinklytics AI
+          ThinklyticsAI
         </h2>
         
         <p className="massive-subtitle mt-2">
@@ -37,7 +37,7 @@ export default function AboutPage() {
             <div className="flex-1 p-10 md:p-14 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10">
               <h2 className="text-2xl font-extrabold text-cyan-400 mb-6">Our Mission</h2>
               <p className="text-gray-300 leading-relaxed text-base">
-                At Thinklytics AI, we bridge the gap between bleeding-edge artificial intelligence research and practical, impactful enterprise solutions. We don't just build neural networks—we build the teams, ecosystems, and architectures that allow modern businesses to operate autonomously and efficiently.
+                At ThinklyticsAI, we bridge the gap between bleeding-edge artificial intelligence research and practical, impactful enterprise solutions. We don't just build neural networks—we build the teams, ecosystems, and architectures that allow modern businesses to operate autonomously and efficiently.
               </p>
             </div>
 
@@ -79,7 +79,7 @@ export default function AboutPage() {
             <div className="mentor-content-wrapper p-10 md:p-16 border-y-0 border-r-0">
               <h3 className="text-2xl font-bold text-white mb-2">Divij Bajaj</h3>
               <p className="text-cyan-400 text-sm font-semibold tracking-widest uppercase mb-8">
-                Founder, Thinklytics AI • Microsoft Data Scientist
+                Founder, ThinklyticsAI • Microsoft Data Scientist
               </p>
               
               <ul className="space-y-6 text-gray-300 text-base">

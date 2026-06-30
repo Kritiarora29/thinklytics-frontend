@@ -38,7 +38,7 @@ export default function Hero() {
           </h1>
           
           <p className={styles.description}>
-            Design, build, and scale AI-powered products with speed and precision. <br className={styles.hideMobile} /> Thinklytics AI helps you leverage cutting-edge technology to transform your business.
+            Design, build, and scale AI-powered products with speed and precision. <br className={styles.hideMobile} /> ThinklyticsAI helps you leverage cutting-edge technology to transform your business.
           </p>
 
           <motion.div
